@@ -4,13 +4,13 @@ import { useForm } from "react-hook-form";
 import React, { useRef } from "react";
 
 export default function Signup (){
+  // Handle form validation 
   const {register,formState: { errors }, handleSubmit,watch } = useForm()
+  const password = useRef({});
+  password.current = watch("password", "");
   const onSubmit = (data)=> {
     console.log(data)
   }
-  // function saveData(){
-  //   console.log("Submited")
-  // }
   return(
     <>
       <div className="border w-4/12 px-4 py-16 m-auto my-10  ">
