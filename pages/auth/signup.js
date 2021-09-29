@@ -56,16 +56,6 @@ export default function Signup(){
                 />
               </span>
             </div>
-            <div className="flex pt-3">
-             <div className="flex">
-              <span className=" inline-block">
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
-              </span>
-              <span className=" inline-block text-primary text-sm px-2">
-                Remember Password 
-              </span>
-             </div>
-            </div>
             <div className=" block w-full">
               <Button
               className=" bg-call-to-action text-white text-sm uppercase w-full py-3 rounded-md font-medium"

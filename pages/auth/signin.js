@@ -33,7 +33,7 @@ export default function Signin(){
         </div>
         <div className="block ">
           <form  className= "space-y-3">
-            <div class="grid grid-cols-1  gap-4 "> 
+            <div className="grid grid-cols-1  gap-4 "> 
               <span>
                 <InputEmail
                 className= "rounded-md text-sm w-full outline-none"

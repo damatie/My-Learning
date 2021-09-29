@@ -8,13 +8,12 @@ export default function authLayout({ children }) {
   return (
     <>
       <Head>
-        <title> Kusnap:: Admin</title>
+        <title> My Learning</title>
         <meta charSet="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"></link>
       </Head>
       <main className="flex w-full">
-      <div className="w-3/12 absolute left-0 px-10 ">
+      <div className="lg:hidden xl:block  absolute left-0 px-10 ">
         <div className="w-full mt-32">
           <Image
           src="/assets/img/others/Logo.png"
@@ -27,16 +26,19 @@ export default function authLayout({ children }) {
           <span className="block"> for High <span className=" text-success">Productivity</span></span>
         </div>
       </div>
-      <div className="w-9/12 h-full right-0 absolute bg-accent px-10">
+      <div className="lg:w-full xl:w-8/12 2xl:w-9/12 h-full right-0 fixed bg-accent px-10">
         {
         router.pathname === '/auth/signup'? 
         <div className=" w-full py-4">
         <span className=" inline-block float-right">
-          
-            <Button
-            className=" bg-call-to-action uppercase text-white text-sm  px-14 py-3 rounded "
-            label= " Login"
-            />
+          <Link href="/auth/signin">
+            <a>
+              <Button
+              className=" bg-call-to-action uppercase text-white text-sm  px-14 py-3 rounded "
+              label= " Login"
+              />
+            </a>
+            </Link>
         </span>
         <span className=" inline-block text-primary text-base w-10/12 text-right mt-2">
           Already a have an account Login ? 
@@ -45,17 +47,21 @@ export default function authLayout({ children }) {
       : 
       <div className=" w-full py-4">
           <span className=" inline-block float-right">
+          <Link href="/auth/signup">
+            <a>
               <Button
               className=" bg-call-to-action uppercase text-white text-sm  px-14 py-3 rounded "
-              label= " Signin"
+              label= " Signup"
               />
+              </a>
+            </Link>
           </span>
           <span className=" inline-block text-primary text-base w-10/12 text-right mt-2">
           Dont have an Account? 
           </span>
         </div>
         }
-        <div className=" bg-white rounded w-6/12 px-10 py-5 mx-auto my-2 ">
+        <div className=" bg-white rounded lg:mt-20 xl:mt-5 lg:w-8/12 xl:w-8/12 2xl:w-6/12 px-10 py-7 mx-auto ">
           {children}
         </div>
       </div>
