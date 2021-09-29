@@ -1,5 +1,5 @@
 export default function Button(props){
-  const {type,label,className,onClick} = props
+  const {type,label,icon,className,onClick} = props
  return(
   <>
   <button
@@ -7,6 +7,7 @@ export default function Button(props){
   className={className}
   onClick = {onClick}
   >
+    {icon}
     {label}
   </button>
 </>
