@@ -7,10 +7,10 @@ import Icon from '../shared/icon';
 
 export default function NavbarHome() {
     return (
-        <div class='w-full mb-5'>
-            <nav className='nav w-11/12 mx-auto flex flex-row bg-white justify-between flex-wrap items-center pr-5'>
+        <div className='w-full mb-3'>
+            <nav className='nav w-11/12 mx-auto flex flex-row  pt-4 bg-white justify-between flex-wrap items-center pr-5'>
                 <div className='nav__logo flex items-center justify-center'>
-                    <Icon name='logo' alt='my learning app' width={100} height={100} />
+                    <Image src='/assets/img/others/Logo.png' alt='my learning app' width={231} height={46} />
                 </div>
                 <ul className='nav__links flex items-center py-1'>
                     <li className='mr-1'>
@@ -37,14 +37,14 @@ export default function NavbarHome() {
                 <ul className='nav__btns flex items-center'>
                     <li>
                         <Link href='/auth/signin'>
-                            <a  className='py-2 text-base text-gray-700 rounded px-5  mr-2 hover:bg-call-to-action hover:text-accent'>Login</a>
+                            <a  className='transition-all text-base leading-7 font-normal not-italic text-gray-700   py-1 pb-3 mx-4 border-b-4 rounded-sm font-semibold  border-transparent focus:border-call-to-action focus:text-call-to-action hover:text-call-to-action hover:border-call-to-action'>Login</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href='/'>
+                        <Link href='/auth/signup'>
                             <a className=''>
                                 <Button
-                                className=' inline-block py-2 px-8 font-normal text-base text-white rounded-md bg-call-to-action'
+                                className=' inline-block ease-in-out py-3 px-8 text-base transition duration-300 text-white rounded-md bg-call-to-action hover:bg-success font-semibold'
                                 label='Create Account'
                                 />
                             </a>
