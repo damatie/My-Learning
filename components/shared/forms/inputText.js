@@ -1,25 +1,25 @@
 import Icon from "../icon"
 
-export  const InputText = ({ type, className, name, label, register, required,Icon }) => (
+export  const InputText = ({ type,name, label, register, required }) => (
   <>
     
-      <label className="font-medium text-sm text-primary block pb-2">{label}</label>
-      <span className="border flex rounded-md px-3 py-3">
+      <label className="font-bold text-sm text-primary-lighter block pb-2">{label}</label>
+      <span className="border border-primary flex rounded-md px-3 py-2">
         <input
-        type="text"
-        className = {className}
+        type={type}
+        className= " rounded-md text-sm  py-1  w-full outline-none"
         {...register(name, { required})}
         />
       </span>
   </>
 );
-export  const InputEmail = ({className, name, label, register, required, }) => (
+export  const InputEmail = ({ type,name, label, register, required, }) => (
   <>
-    <label className="font-medium text-sm text-primary block pb-2">{label}</label>
-    <span className="border flex rounded-md px-3 py-3 ">
+    <label className="font-bold text-sm text-primary-lighter block pb-2">{label}</label>
+    <span className="border border-primary flex rounded-md px-3 py-2 ">
       <input
-      type="text"
-      className = {className}
+      type={type}
+      className= " rounded-md text-sm  py-1  w-full outline-none"
       {...register(name, { 
         required,
         pattern: {
@@ -32,16 +32,15 @@ export  const InputEmail = ({className, name, label, register, required, }) => (
   </>
 );
 
-export  const InputPwd = ({showPwd,className, name, label, register, required,onClick }) => {
+export  const InputPwd = ({type, name, label, register, required,onClick }) => {
   return (
     
   <>
-    <label className="font-medium text-sm text-primary block pb-2 ">{label}</label>
-    <span className="border flex rounded-md px-3 py-3 ">
+    <label className="font-bold text-sm text-primary-lighter block pb-2 ">{label}</label>
+    <span className="border border-primary flex rounded-md px-3 py-2 ">
       <input
-      type={ showPwd? "text" : "password" 
-     }
-      className = {className}
+      type={type}
+     className= " rounded-md text-sm  py-1  w-full outline-none"
       {...register(name, { 
         required,
        })} 
