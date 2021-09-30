@@ -1,5 +1,7 @@
-import Head from 'next/head'
+import { useState } from 'react';
 import Link from 'next/link'
+import { motion } from 'framer-motion';
+
 import FeatureAccordion from '../components/accordion/featureAccordion/featureAccordion'
 import About from '../components/card/about'
 import { dataAbout } from '../components/data/dataAbout'
@@ -10,6 +12,9 @@ import Sponsor from '../components/sponsor/sponsor'
 import Testimonial from '../components/testimonial/testimonial'
 
 export default function Home() {
+
+
+
   return (
     <HomeLayout>
       <HeroHome/>
@@ -50,10 +55,10 @@ export default function Home() {
           })}
         </div>
       </section>
-      <section className='features w-full p-5 pr-0  flex flex-wrap my-16 justify-between' id='features'>
+      <section className='features w-full p-5 pr-0 pb-20 flex flex-wrap mt-16 mb-30 justify-between' id='features'>
         <div className='features__text w-5/12 ml-10'>
           <h3 className='capitalize text-xlg pb-1 mb-8 border-b-2 border-green-700 font-normal'>key features</h3>
-          <div className=''>
+          <div>
             <FeatureAccordion/>
           </div>
         </div>
@@ -66,18 +71,19 @@ export default function Home() {
         </div>
       </section>
       <Testimonial/>
-      <section className='start w-full mb-5 mt-3 py-16 px-10'>
-          <div className='start__content items-center w-8/12 m-auto flex  flex-wrap'>
-            <h3 className='w-7/12 text-5xl font-normal leading-tight'>Start <span className='text-success'>Developing</span> your company today</h3>
-            <Link href='/'>
-              <a className=''>
-                <Button
-                  className='ml-3 inline-block py-3 px-12 font-normal text-base text-white rounded-md bg-call-to-action'
+      <section className='start w-full mb-24'>
+          <div className='w-10/12 mx-auto'>
+            <div className='start__content items-center w-3/4 m-auto flex  flex-wrap'>
+              <h3 className='w-7/12 text-5xl font-normal leading-tight'>Start <span className='text-success'>Developing</span> your company today</h3>
+              <Link href='/auth/signup'>
+                <a className=''>
+                  <Button
+                  className='ml-3 inline-block ease-in-out py-3 px-12 text-base transition duration-300 text-white rounded-md bg-call-to-action hover:bg-success font-semibold'
                   label='Create Account'
-                />
-              </a>
-            </Link>
-            {/* <Link href='/auth/signup'><a className=' inline-block px-10 ml-3  py-2 bg-call-to-action rounded-sm uppercase text-white text-sm'>Create Account</a></Link> */}
+                  />
+                </a>
+              </Link>
+            </div>
           </div>
         </section>
     </HomeLayout>

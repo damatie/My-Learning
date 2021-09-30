@@ -20,6 +20,7 @@ module.exports = {
         'success':'#3AAFA9',
         'primary': '#17252A',
         'feature':'#4A4A4A',
+        'call-to-action': '#2B7A78',
       },
       textColor: {
         'about-content': '#23272B',
@@ -43,7 +44,51 @@ module.exports = {
         '2xlg':'55px',
         'md':'25px',
         'xbase':'15px'
-      }
+      },
+      animation: {
+        'drop': 'drop 0.5s forwards',
+        'turn': 'turn 0.4s forwards',
+        'rturn': 'rturn 0.4s forwards',
+      },
+      keyframes: {
+        drop: {
+          '0%': {
+            'transform': 'translateY(-25%)',
+            'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)',
+            'opacity':'0',
+          },
+          '100%': {
+            'transform': 'translateY(0)',
+            'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)',
+          }
+        },
+        turn: {
+          '0%': {
+            'transform': 'rotate(0deg)',
+            'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)',
+            // 'opacity':'0',
+          },
+          '100%': {
+            'transform': 'rotate(90deg)',
+            'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)',
+          }
+        },
+        rturn: {
+          '0%': {
+            'transform': 'rotate(90deg)',
+            'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)',
+            // 'opacity':'0',
+          },
+          '100%': {
+            'transform': 'rotate(0deg)',
+            'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)',
+          }
+        }
+      }, 
+      transitionProperty: {
+        'height': '10',
+        'spacing': '30, 20',
+      },
     },
   },
   variants: {
