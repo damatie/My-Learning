@@ -4,6 +4,8 @@ import Button from "../../components/shared/forms/button"
 import Icon from "../../components/shared/icon"
 import Link from 'next/link'
 import {InputText,InputEmail,InputPwd} from "../../components/shared/forms/inputText"
+import { useForm } from "react-hook-form"
+
 
 export default function Signup(){
  
