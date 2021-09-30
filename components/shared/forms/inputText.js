@@ -3,7 +3,7 @@ import Icon from "../icon"
 export  const InputText = ({ type,name, label, register, required }) => (
   <>
     
-      <label className="font-bold text-sm text-primary-lighter block pb-2">{label}</label>
+      <label className="text-sm font-semibold pb-1 block">{label}</label>
       <span className="border border-primary flex rounded-md px-3 py-2">
         <input
         type={type}
@@ -15,7 +15,7 @@ export  const InputText = ({ type,name, label, register, required }) => (
 );
 export  const InputEmail = ({ type,name, label, register, required, }) => (
   <>
-    <label className="font-bold text-sm text-primary-lighter block pb-2">{label}</label>
+    <label className="text-sm font-semibold pb-1 block">{label}</label>
     <span className="border border-primary flex rounded-md px-3 py-2 ">
       <input
       type={type}
@@ -36,7 +36,7 @@ export  const InputPwd = ({type, name, label, register, required,onClick }) => {
   return (
     
   <>
-    <label className="font-bold text-sm text-primary-lighter block pb-2 ">{label}</label>
+    <label className=" text-sm font-semibold pb-1 block">{label}</label>
     <span className="border border-primary flex rounded-md px-3 py-2 ">
       <input
       type={type}

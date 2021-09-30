@@ -3,7 +3,8 @@ import Button from "../../components/shared/forms/button"
 
 import {InputText,InputEmail} from "../../components/shared/forms/inputText"
 
-export default function addCompanyDetails(){
+export default function addCompanyDetails(props){
+  const {isEdit,setIsEdit} = props
    // Handle form validation 
    const {register,formState: { errors }, handleSubmit,watch } = useForm()
   return(
@@ -16,7 +17,7 @@ export default function addCompanyDetails(){
         </span>
      </div>
      <div className="mt-3">
-       <div class="grid grid-cols-1 gap-4">
+       <div className="grid grid-cols-1 gap-4">
           <span>
             <InputText  name = "firstName" type = "text" label="Company Name " register={register} required />
           </span>
@@ -32,12 +33,26 @@ export default function addCompanyDetails(){
           <span>
             <InputText name = "firstName" type = "text" label="Office Contact " register={register} required />
           </span>
+          { isEdit? 
           <div className=" text-center mt-7">
             <Button
               className=" bg-call-to-action text-white text-sm uppercase w-32 py-3 rounded font-medium"
               label="CREATE"
             />
           </div>
+          :
+          <div className=" text-center mt-7 space-x-3">
+            <Button
+              className=" bg-call-to-action text-white text-sm uppercase w-32 py-3 rounded font-medium"
+              label="UPDATE"
+            />
+            <Button
+              onClick ={ (e) => setIsEdit(!isEdit)}
+              className=" bg-call-to-action text-white text-sm uppercase w-32 py-3 rounded font-medium"
+              label="CANCEL"
+            />
+          </div>
+            }
        </div>
      </div>
     </div>
