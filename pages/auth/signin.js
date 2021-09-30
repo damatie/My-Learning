@@ -36,12 +36,11 @@ export default function Signin(){
             <div className="grid grid-cols-1  gap-4 "> 
               <span>
                 <InputEmail
-                className= "rounded-md text-sm w-full outline-none"
                 name = "email" type = "text"  label="Email  " register={register} required 
                 />
               </span>
               <span>
-                <InputPwd className= "rounded-md text-sm w-full outline-none" name = "password" type = "text"  label="Password  " register={register} required />
+                <InputPwd name = "password" type = "text"  label="Password  " register={register} required />
               </span>
             </div>
             <div className="flex pt-3">
@@ -59,7 +58,7 @@ export default function Signin(){
             </div>
             <div className=" block w-full">
               <Button
-              className=" bg-call-to-action text-white text-sm uppercase w-full py-3 rounded-md font-medium"
+              className=" bg-call-to-action text-white text-sm uppercase w-full py-3 rounded font-medium"
               label="Login"
               />
             </div>

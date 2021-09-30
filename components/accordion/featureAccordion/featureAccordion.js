@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import Image from 'next/image'
+
+import { motion, AnimatePresence } from "framer-motion";
+// import { ContentPlaceholder } from "./ContentPlaceholder";
+
 import FeatureAccordionItem from '../accordionItems/featureAccordionItem';
 import { dataFeatures } from '../../data/dataFeatures';
 
@@ -12,22 +16,21 @@ export default function FeatureAccordion() {
             return setClicked("0") 
         } 
         setClicked(index)
-        console.log('ok')
     }    
 
     return (
-        <ul>
+        <div>
             {dataFeatures?.map((dataFeature, index) =>{
                 return  (
-                <FeatureAccordionItem 
-                    key={index}  
-                    feature={dataFeature} 
-                    onToggle={() => handleFeatureToggled(index)}
-                    active={clicked === index}
-                />
+                    <FeatureAccordionItem 
+                        key={index}
+                        feature={dataFeature} 
+                        onToggle={() => handleFeatureToggled(index)}
+                        active={clicked === index}
+                    />
                 )
             } 
             )}
-        </ul>
+        </div>
     );
 }

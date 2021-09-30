@@ -4,7 +4,8 @@ import Button from "../../components/shared/forms/button"
 import Icon from "../../components/shared/icon"
 import Link from 'next/link'
 import {InputText,InputEmail,InputPwd} from "../../components/shared/forms/inputText"
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
+
 
 export default function Signup(){
  
@@ -37,28 +38,28 @@ export default function Signup(){
           <form  className= "space-y-3">
             <div className="grid grid-cols-2 gap-4 ">  
               <span>
-              <InputText className= " rounded-md text-sm   w-full outline-none" name = "firstName" type = "text" label="First Name" register={register} required />
+              <InputText name = "firstName" type = "text" label="First Name" register={register} required />
               </span>
               <span>
-              <InputText className= " rounded-md text-sm  w-full outline-none" name = "firstName" type = "text"  label="Last Name " register={register} required />
+              <InputText name = "firstName" type = "text"  label="Last Name " register={register} required />
               </span>
             </div>
             <div className="grid grid-cols-1  gap-4 "> 
               <span>
-                <InputEmail className= " rounded-md text-sm  w-full outline-none" name = "firstName" type = "text"  label="Email  " register={register} required />
+                <InputEmail  name = "firstName" type = "text"  label="Email  " register={register} required />
               </span>
               <span>
-              <InputPwd className= "rounded-md text-sm w-full outline-none" name = "password"   label="Password  " register={register} required
+              <InputPwd  name = "password"   label="Password  " register={register} required
                />
               </span>
               <span>
-                <InputPwd className= "rounded-md text-sm w-full outline-none" name = "password"      label="Confirm Password  " register={register} required 
+                <InputPwd name = "password"      label="Confirm Password  " register={register} required 
                 />
               </span>
             </div>
             <div className=" block w-full">
               <Button
-              className=" bg-call-to-action text-white text-sm uppercase w-full py-3 rounded-md font-medium"
+              className=" bg-call-to-action text-white text-sm uppercase w-full py-3 rounded font-medium"
               label="Create an account"
               />
             </div>
