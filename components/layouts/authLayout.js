@@ -10,7 +10,7 @@ export default function authLayout({ children }) {
     <>
       <HeadLayout title='Authorization | My Learning'/>
       <main className="flex w-full">
-      <div className="lg:hidden xl:block  absolute left-0 px-10 ">
+      <div className="lg:hidden xl:block  fixed left-0 px-10 ">
         <div className="w-full mt-32">
           <Image
           src="/assets/img/others/Logo.png"
@@ -23,7 +23,7 @@ export default function authLayout({ children }) {
           <span className="block"> for High <span className=" text-success">Productivity</span></span>
         </div>
       </div>
-      <div className="lg:w-full xl:w-8/12 2xl:w-9/12 h-full right-0 fixed bg-accent px-10">
+      <div className="lg:w-full xl:w-8/12 2xl:w-9/12 h-full overflow-y-auto right-0 fixed bg-accent px-10">
         {
         router.pathname === '/auth/signup'? 
         <div className=" w-full py-4">
@@ -37,7 +37,7 @@ export default function authLayout({ children }) {
             </a>
             </Link>
         </span>
-        <span className=" inline-block text-primary text-base w-10/12 text-right mt-2">
+        <span className=" inline-block text-primary text-base xl:w-9/12 2xl:w-10/12 text-right mt-2">
           Already a have an account Login ? 
         </span>
       </div>
@@ -53,7 +53,7 @@ export default function authLayout({ children }) {
               </a>
             </Link>
           </span>
-          <span className=" inline-block text-primary text-base w-10/12 text-right mt-2">
+          <span className=" inline-block text-primary text-base xl:w-9/12  2xl:w-10/12 text-right mt-2">
           Dont have an Account? 
           </span>
         </div>
