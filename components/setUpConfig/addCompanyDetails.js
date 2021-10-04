@@ -10,12 +10,22 @@ export default function addCompanyDetails(props){
   return(
     <>
     <div className=" w-6/12 mx-auto px-10 py-5">
-     <div className=" w-full text-center"> 
-        <span className=" text-primary text-lg font-medium block"> Add Company Details</span>
-        <span className="text-sm text-primary block">
-          Kindly fill in the details of your company
-        </span>
-     </div>
+    {
+      !isEdit? 
+      <div className=" w-full text-center"> 
+      <span className=" text-primary text-lg font-medium block"> Add Company Details</span>
+      <span className="text-sm text-primary block">
+        Kindly fill in the details of your company
+      </span>
+   </div>
+   :
+   <div className=" w-full text-center"> 
+      <span className=" text-primary text-lg font-medium block"> Edit Company Details</span>
+      <span className="text-sm text-primary block">
+        Kindly fill in the details of your company
+      </span>
+    </div>
+    }
      <div className="mt-3">
        <div className="grid grid-cols-1 gap-4">
           <span>
@@ -33,7 +43,7 @@ export default function addCompanyDetails(props){
           <span>
             <InputText name = "firstName" type = "text" label="Office Contact " register={register} required />
           </span>
-          { isEdit? 
+          { !isEdit? 
           <div className=" text-center mt-7">
             <Button
               className=" bg-call-to-action text-white text-sm uppercase w-32 py-3 rounded font-medium"
@@ -48,7 +58,7 @@ export default function addCompanyDetails(props){
             />
             <Button
               onClick ={ (e) => setIsEdit(!isEdit)}
-              className=" bg-call-to-action text-white text-sm uppercase w-32 py-3 rounded font-medium"
+              className=" bg-white text-call-to-action border border-call-to-action text-sm uppercase w-32 py-3 rounded font-medium"
               label="CANCEL"
             />
           </div>

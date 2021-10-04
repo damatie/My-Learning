@@ -4,6 +4,7 @@ import CompanyDetails from '../../../components/setUpConfig/companyDetails'
 import { useState } from 'react'
 export default function setConfig(){
   const [isEdit,setIsEdit] = useState(false)
+  const [add,setAdd] = useState(true)
   console.log(isEdit)
 
   return(

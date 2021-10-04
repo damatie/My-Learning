@@ -1,14 +1,14 @@
 import Icon from "../icon"
 
-export  const InputText = ({ type,name, label, register, required }) => (
+export  const InputText = ({ type,onChange,name, label, register, value, defaultValue, required }) => (
   <>
     
       <label className="text-sm font-semibold pb-1 block">{label}</label>
       <span className="border border-primary flex rounded-md px-3 py-2">
         <input
+        onChange ={onChange}
         type={type}
         className= " rounded-md text-sm  py-1  w-full outline-none"
-        {...register(name, { required})}
         />
       </span>
   </>
