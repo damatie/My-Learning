@@ -16,7 +16,7 @@ export default function NavbarHome() {
 
     return (
         <>
-            <div className=' hidden lg:block  w-full mb-3  lg:bg-blue-700 md:bg-green-800'>
+            <div className=' hidden lg:block  w-full mb-3  '>
                 <nav className='nav w-11/12 mx-auto flex flex-row  pt-4 bg-white justify-between flex-wrap items-center pr-5'>
                     <div className='nav__logo flex items-center justify-center'>
                         <Image src='/assets/img/others/Logo.png' alt='my learning app' width={231} height={46} />
