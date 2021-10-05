@@ -75,7 +75,6 @@ export default function CompanyDetails(props){
           </span>
         ))
         }
-          
         <div className="flex w-full justify-center space-x-2 ">
           <span className=" text-base font-medium  inline-block pt-1"> Add Departments</span>
           <span 
