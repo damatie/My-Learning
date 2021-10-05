@@ -26,3 +26,13 @@
 // }
 
 // export default AppLayout;
+
+// function appLayout() {
+//     return (
+//         <div>
+//             Enter
+//         </div>
+//     );
+// }
+
+// export default appLayout;

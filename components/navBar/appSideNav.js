@@ -25,28 +25,32 @@
 //                         <li className='mb-2'>
 //                             <Link   href='/'>
 //                                 <a className='inline-flex px-1 py-2 rounded-lg font-semibold items-center text-center w-full bg-accent justify-center text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary'>
-//                                     <Icon name='dashboard' alt='dashboard' width={25} height={25} /><span className='pl-2'>Dashboard</span>
+//                                     <Icon name='dashboard' alt='dashboard' width={25} height={25} />
+//                                     { reduceAppSideNav &&  <span className='pl-2'>Dashboard</span>}
 //                                 </a>
 //                             </Link>
 //                         </li>
 //                         <li className='mb-2'>
 //                             <Link   href='/'>
 //                                 <a className='inline-flex  px-1 py-2 rounded-lg font-semibold  items-center text-center w-full  justify-center text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary'>
-//                                     <Icon name='employee' alt='employees' width={25} height={25} /><span className='pl-2'>Employee</span>
+//                                     <Icon name='employee' alt='employees' width={25} height={25} />
+//                                     { reduceAppSideNav && <span className='pl-2'>Employee</span>}
 //                                 </a>
 //                             </Link>
 //                         </li>
 //                         <li className='mb-2'>
 //                             <Link   href='/'>
 //                                 <a className='inline-flex  px-1 py-2 rounded-lg font-semibold  items-center text-center w-full  justify-center text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary'>
-//                                     <Icon name='mortarboard' alt='trainings' width={25} height={25} /><span className='pl-2'>Trainings</span>
+//                                     <Icon name='mortarboard' alt='trainings' width={25} height={25} />
+//                                     { reduceAppSideNav && <span className='pl-2'>Trainings</span>}
 //                                 </a>
 //                             </Link>
 //                         </li>
 //                         <li className='mb-2'>
 //                             <Link   href='/'>
 //                                 <a className='inline-flex  px-1 py-2 rounded-lg font-semibold  items-center text-center w-full  justify-center text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary'>
-//                                     <Icon name='Setting' alt='settings' width={25} height={25} /><span className='pl-2'>Settings</span>
+//                                     <Icon name='Setting' alt='settings' width={25} height={25} />
+//                                     { reduceAppSideNav && <span className='pl-2'>Settings</span>}
 //                                 </a>
 //                             </Link>
 //                         </li>
@@ -55,7 +59,8 @@
 //                 <div className=''>
 //                     <Link   href='/'>
 //                         <a className='inline-flex justify-center  w-full items-center active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary px-1 py-2  rounded-lg'>
-//                             <Icon name='Logout' alt='log out' width={25} height={25} /><span className='pl-1'>Logout</span>
+//                             <Icon name='Logout' alt='log out' width={25} height={25} />
+//                             <span className='pl-1'>Logout</span>
 //                         </a>
 //                     </Link>
 //                     <div className='w-full mx-auto flex items-center  justify-center mt-3'>
