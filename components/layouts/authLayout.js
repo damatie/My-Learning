@@ -3,16 +3,12 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Button from '../shared/forms/button'
 import { useRouter } from 'next/router'
+import HeadLayout from './headLayout'
 export default function authLayout({ children }) {
   const router = useRouter();
   return (
     <>
-      <Head>
-        <title> My Learning</title>
-        <meta charSet="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"></link>
-      </Head>
+      <HeadLayout title='Authorization | My Learning'/>
       <main className="flex w-full">
       <div className="lg:hidden xl:block  fixed left-0 px-10 ">
         <div className="w-full mt-32">

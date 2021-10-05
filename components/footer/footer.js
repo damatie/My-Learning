@@ -7,8 +7,11 @@ export default function Footer() {
     return (
         <footer className='w-full bg-call-to-action'>
             <div className="footer pb-10  pt-16 flex flex-wrap  w-11/12 mx-auto items-start justify-between text-white ">
-                <div className='footer__logo'>
+                <div className='hidden sm:block footer__logo'>
                     <Image src='/assets/img/others/Logo-Footer.png' alt='my learning' width={231} height={46}  />
+                </div>
+                <div className='block sm:hidden footer__logo'>
+                    <Image src='/assets/img/others/Logo-Footer.png' alt='my learning' width={161.7} height={32.2}  />
                 </div>
                 <div className='flex  flex-wrap'>
                     <ul className='footer__links mr-5'>
@@ -46,8 +49,8 @@ export default function Footer() {
                         </li>
                     </ul>
                 </div>
-                <div className='footer__address'>
-                    <ul className='footer__address--social  flex justify-end mb-4 flex-wrap '>
+                <div className='footer__address mt-8 sm:mt-0 md:mt-3 md:ml-auto'>
+                    <ul className='footer__address--social  flex sm:justify-end mb-4 flex-wrap '>
                         <li>
                             <a href='' target='_blank' className='ml-2 inline-block '>
                                 <Icon name='instagram' alt='instagram handle' width={23} height={23}  />
@@ -64,15 +67,15 @@ export default function Footer() {
                             </a>
                         </li>
                     </ul>
-                    <div className='my-4 w-full flex justify-end  flex-wrap'>
-                        <p className='w-7/12 text-right'>
+                    <div className='my-4 w-full flex sm:justify-end flex-wrap'>
+                        <p className='w-7/12 sm:text-right'>
                             20a, Batunde  Anjous Avenue, off Admirality way, Lekki Phase 1 Lagos
                         </p>
                     </div>
-                    <div className='my-4 w-full flex justify-end  flex-wrap'>
+                    <div className='my-4 w-full flex sm:justify-end  flex-wrap'>
                         <a href='+tel:+234 908 7516 846' className='inline-block'>+234 908 7516 846</a>
                     </div>
-                    <div className='my-4 w-full flex justify-end  flex-wrap'>
+                    <div className='my-4 w-full flex sm:justify-end  flex-wrap'>
                         <a href='mailto:Mylearning@gmail.com' className='inline-block'>Mylearning@gmail.com</a>
                     </div>
                 </div>
