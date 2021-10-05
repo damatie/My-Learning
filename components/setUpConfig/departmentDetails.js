@@ -80,7 +80,8 @@ export default function CompanyDetails(props){
         { addInput.map((list, i) => (
           <span className=" flex py-0"  key={i} >
             <span className=" w-10/12 inline-block">
-              <InputText  type = "text" label="Department Name " 
+              <InputText  name={"addInput"+i} type = "text" label="Department Name " 
+              register={register}
               defaultValue={list.department}
               onChange={ (e) => handelInputChange(e.target.value,i)}
               />
@@ -91,7 +92,7 @@ export default function CompanyDetails(props){
               onClick ={(e) =>removeInput(i)}
                 className=" inline-block cursor-pointer"> 
                 {/* <i className="lar la-trash-alt text-2xl text-error"></i> */}
-                <i class="las la-times-circle text-2xl text-error"></i>
+                <i className="las la-times-circle text-2xl text-error"></i>
               </span>
             </span>
           </span>

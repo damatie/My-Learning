@@ -40,20 +40,20 @@ export  const InputPwd = ({type, name, label, register, required,onClick }) => {
     
   <>
     <label className=" text-sm font-semibold pb-1 block">{label}</label>
-    <span className="border border-primary flex rounded-md px-3 py-2 ">
+    <span className="border border-primary flex rounded-md px-3 ">
       <input
       type={type}
-     className= " rounded-md text-sm  py-1  w-full outline-none"
+     className= " rounded-md text-sm w-full outline-none"
       {...register(name, { 
         required,
        })} 
       
       />
-       <span className="cursor-pointer"
+       <span className="cursor-pointer  flex-none inline-block pt-1 leading-10 "
         onClick ={onClick}
        >
        <Icon
-        className= " text-call-to-action cursor-pointer inline-block"
+        className= " text-call-to-action cursor-pointer inline-block "
         name = "view"
         width= {18} 
         height= {18}

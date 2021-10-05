@@ -6,8 +6,22 @@ import Link from 'next/link'
 import {InputText,InputEmail,InputPwd} from "../../components/shared/forms/inputText"
 import { useForm } from "react-hook-form"
 
-
 export default function Signup(){
+  const [isPwdVisible, setIsPwdVisible] = useState(true)
+  const [isPwdConfirmVisible, setIsPwdConfirmVisible] = useState(true)
+  const [password, setPassword] = useState('password')
+  const [confirmPassword, setConfirmPassword] = useState('password')
+
+  function show(value){
+    if(value==='password'){
+      {isPwdVisible? setPassword('text')|| setIsPwdVisible(!isPwdVisible):setPassword('password')||setIsPwdVisible(!isPwdVisible)}
+      
+    }
+    if(value==='confirmPassword'){
+      {isPwdConfirmVisible? setConfirmPassword('text')|| setIsPwdConfirmVisible(!isPwdConfirmVisible):setConfirmPassword('password')||setIsPwdConfirmVisible(!isPwdConfirmVisible)}
+    }
+  }
+
  
    // Handle form validation 
    const {register,handleSubmit,formState: { errors } } = useForm()
@@ -39,26 +53,35 @@ export default function Signup(){
         </div>
         <div className="block ">
           <form onSubmit={handleSubmit(onSubmit)} className= "space-y-3">
-            <div className="grid grid-cols-2 gap-4 ">  
-              <span>
-              <InputText name = "firstName" type = "text" label="First Name" register={register} required />
-              {errors.firstName && <span role="alert">{errors.firstName.message}</span>}
-              </span>
-              <span>
-              <InputText name = "lastName" type = "text"  label="Last Name " register={register} required />
-              </span>
-            </div>
             <div className="grid grid-cols-1  gap-4 "> 
+            <span>
+              <InputText name = "companyName" type = "text" label="Company Name" register={register} required  />
+             <span className=" text-error text-xs">{errors.companyName?.type === 'required' && "Company name is required"} </span>
+              </span>
               <span>
                 <InputEmail  name = "email" type = "text"  label="Email  " register={register} required />
+                  <span className=" text-error text-xs">
+                   {errors.email?.type === 'required' && "Email is required"}
+                  </span>
               </span>
               <span>
-              <InputPwd  name = "password"   label="Password  " register={register} required
-               />
+              <InputPwd  name = "password"   label="Password  " 
+                type={password}
+                register={register} required
+               onClick={(e) => show('password')} />
+                <span className=" text-error text-xs">
+                   {errors.password?.type === 'required' && "Password is required"}
+                </span>
               </span>
               <span>
-                <InputPwd name = "confirmPassword"      label="Confirm Password  " register={register} required 
+                <InputPwd name = "confirmPassword" label="Confirm Password "
+                type={confirmPassword}
+                register={register} 
+                required onClick={(e) => show('confirmPassword')}
                 />
+                <span className=" text-error text-xs">
+                   {errors.confirmPassword?.type === 'required' && "Confirm is required"}
+                </span>
               </span>
             </div>
             <div className=" block w-full">
