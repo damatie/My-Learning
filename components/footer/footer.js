@@ -6,7 +6,7 @@ import Icon from "../shared/icon";
 export default function Footer() {
     return (
         <footer className='w-full bg-call-to-action'>
-            <div className="footer pt-10 pb-24 flex flex-wrap  w-11/12 mx-auto items-start justify-between text-white ">
+            <div className="footer pb-10  pt-16 flex flex-wrap  w-11/12 mx-auto items-start justify-between text-white ">
                 <div className='footer__logo'>
                     <Image src='/assets/img/others/Logo-Footer.png' alt='my learning' width={231} height={46}  />
                 </div>

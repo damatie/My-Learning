@@ -16,13 +16,15 @@ module.exports = {
         'text-low-lighter': '#F8F8F8',
         'text-lower-ops': '#D6D6D6',
         'complimentary': '#7A2B2D',
-        'error': '#F56B6B'
+        'error': '#F56B6B',
+        'primary-yellow': '#F3C933'
       },
       borderColor:{
         'success':'#3AAFA9',
         'primary': '#17252A',
         'feature':'#4A4A4A',
         'call-to-action': '#2B7A78',
+        'primary-yellow': '#F3C933'
       },
       textColor: {
         'about-content': '#23272B',
@@ -38,6 +40,7 @@ module.exports = {
         'complimentary': '#7A2B2D',
         'feature':'#4A4A4A',
         'error': '#F56B6B',
+        'primary-yellow': '#F3C933'
       },
       height: {
         'h-big':'80vh',
