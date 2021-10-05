@@ -13,7 +13,7 @@
 function index() {
     return (
         <div>
-            Enter
+            Enter Dashboard page changed
         </div>
     );
 }

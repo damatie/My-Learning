@@ -4,7 +4,7 @@
 // import Icon from "../shared/icon";
 
 
-// function AppSideNav({reduceAppSideNav,setReduceAppSideNav}) {
+// function menuAppSideNav({reduceAppSideNav,setReduceAppSideNav}) {
 
 
 //     const sideNavBtn  = (prev) =>{
@@ -87,4 +87,4 @@
 //     );
 // }
 
-// export default AppSideNav;
+// export default menuAppSideNav;

@@ -49,7 +49,7 @@ export default function Footer() {
                         </li>
                     </ul>
                 </div>
-                <div className='footer__address mt-8 sm:mt-0 md:mt-3 md:ml-auto'>
+                <div className='footer__address mt-8 sm:mt-3   sm:mr-auto md:mt-3 md:ml-auto'>
                     <ul className='footer__address--social  flex sm:justify-end mb-4 flex-wrap '>
                         <li>
                             <a href='' target='_blank' className='ml-2 inline-block '>
