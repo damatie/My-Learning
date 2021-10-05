@@ -1,6 +1,6 @@
 import Icon from "../icon"
 
-export  const InputText = ({ type,onChange,name, label, register, value, defaultValue, required }) => (
+export  const InputText = ({ type,onChange,name, label, register, required }) => (
   <>
     
       <label className="text-sm font-semibold pb-1 block">{label}</label>
@@ -9,6 +9,9 @@ export  const InputText = ({ type,onChange,name, label, register, value, default
         onChange ={onChange}
         type={type}
         className= " rounded-md text-sm  py-1  w-full outline-none"
+        {...register(name, { 
+          required,
+         })}
         />
       </span>
   </>

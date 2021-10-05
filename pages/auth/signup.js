@@ -10,7 +10,10 @@ import { useForm } from "react-hook-form"
 export default function Signup(){
  
    // Handle form validation 
-   const {register,formState: { errors }, handleSubmit,watch } = useForm()
+   const {register,handleSubmit,formState: { errors } } = useForm()
+   const onSubmit = async data => {
+    await login(data.email, data.password);
+  };
   return(
     <AuthLayout>
       <div className=" w-full ">
@@ -35,25 +38,26 @@ export default function Signup(){
           <div className="flex-none w-5/12 "> <hr /></div>
         </div>
         <div className="block ">
-          <form  className= "space-y-3">
+          <form onSubmit={handleSubmit(onSubmit)} className= "space-y-3">
             <div className="grid grid-cols-2 gap-4 ">  
               <span>
               <InputText name = "firstName" type = "text" label="First Name" register={register} required />
+              {errors.firstName && <span role="alert">{errors.firstName.message}</span>}
               </span>
               <span>
-              <InputText name = "firstName" type = "text"  label="Last Name " register={register} required />
+              <InputText name = "lastName" type = "text"  label="Last Name " register={register} required />
               </span>
             </div>
             <div className="grid grid-cols-1  gap-4 "> 
               <span>
-                <InputEmail  name = "firstName" type = "text"  label="Email  " register={register} required />
+                <InputEmail  name = "email" type = "text"  label="Email  " register={register} required />
               </span>
               <span>
               <InputPwd  name = "password"   label="Password  " register={register} required
                />
               </span>
               <span>
-                <InputPwd name = "password"      label="Confirm Password  " register={register} required 
+                <InputPwd name = "confirmPassword"      label="Confirm Password  " register={register} required 
                 />
               </span>
             </div>
