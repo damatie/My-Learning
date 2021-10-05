@@ -11,7 +11,7 @@ export default function FeatureAccordionItem({key,feature,active,onToggle}) {
 
     const resizeAccordion = (resize) =>{
       setToggleAccordion(!resize)
-      console.log('resize')
+    //   console.log('resize')
     } 
 
 
