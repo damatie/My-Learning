@@ -40,7 +40,8 @@ module.exports = {
         'complimentary': '#7A2B2D',
         'feature':'#4A4A4A',
         'error': '#F56B6B',
-        'primary-yellow': '#F3C933'
+        'primary-yellow': '#F3C933',
+        'announcement': '#909090',
       },
       height: {
         'h-big':'80vh',
