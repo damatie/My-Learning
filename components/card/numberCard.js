@@ -1,12 +1,15 @@
 import Link from "next/link";
 
 
-function NumberCard() {
+function NumberCard({title,number,active}) {
     return (
         <Link href='/dashboard'>
-            <a className='bg-gray-300  transition-all text-primary border-2 w-6/12 h-full rounded-lg  border-call-to-action p-10 active:bg-call-to-action focus:bg-call-to-action hover:bg-call-to-action  hover:text-white  focus:text-white active:text-white '>
-                <h4 className='text-2xl pb-5'>Number of trainings</h4>
-                <h2 className='text-4xl font-semibold'>150</h2>
+            <a className={`${active ? 'bg-success  transition-all text-white border-2 w-6/12 rounded-lg border-success py-5  px-5' : 'text-primary border-2 w-6/12 rounded-lg border-success py-5  px-5 bg-white' }`}>
+                <h4 className='text-base pb-3'>{title}</h4>
+                <div className='flex justify-between items-center'>
+                    <h2 className='text-4xl font-semibold'>{number}</h2>
+                    <i class="las la-users text-5xl"></i>
+                </div>
             </a>
         </Link>
     );

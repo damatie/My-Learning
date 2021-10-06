@@ -8,7 +8,8 @@ module.exports = {
         'primary': '#17252A',
         'primary-lighter': '#525252',
         'success': '#3AAFA9',
-        'call-to-action': '#2B7A78',
+        // 'call-to-action': '#2B7A78',
+        'call-to-action': '#032545',
         'accent': '#DEF2F1',
         'tips': '#19A2F6',
         'text-low': '#696969',
@@ -17,13 +18,16 @@ module.exports = {
         'text-lower-ops': '#D6D6D6',
         'complimentary': '#7A2B2D',
         'error': '#F56B6B',
-        'primary-yellow': '#F3C933'
+        'primary-yellow': '#F3C933',
+        'primary-dashboard':'#F9F9F9',
       },
       borderColor:{
         'success':'#3AAFA9',
+        'error': '#F56B6B',
         'primary': '#17252A',
         'feature':'#4A4A4A',
-        'call-to-action': '#2B7A78',
+        // 'call-to-action': '#2B7A78',
+        'call-to-action': '#032545',
         'primary-yellow': '#F3C933'
       },
       textColor: {
@@ -42,6 +46,7 @@ module.exports = {
         'error': '#F56B6B',
         'primary-yellow': '#F3C933',
         'announcement': '#909090',
+        'table-header':'#9FA2B4',
       },
       height: {
         'h-big':'80vh',
