@@ -20,8 +20,10 @@ module.exports = {
         'error': '#F56B6B',
         'primary-yellow': '#F3C933',
         'primary-dashboard':'#F9F9F9',
+        'img-placeholder':'#C4C4C4',
       },
       borderColor:{
+        'img-placeholder':'#C4C4C4',
         'success':'#3AAFA9',
         'error': '#F56B6B',
         'primary': '#17252A',
