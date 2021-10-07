@@ -35,7 +35,7 @@ export  const InputEmail = ({ type,name, label, register, required, }) => (
   </>
 );
 
-export  const InputPwd = ({type, name, label, register, required,onClick }) => {
+export  const InputPwd = ({type, name, label, register, required,onClick, validate }) => {
   return (
     
   <>
@@ -46,6 +46,10 @@ export  const InputPwd = ({type, name, label, register, required,onClick }) => {
      className= " rounded-md text-sm w-full outline-none"
       {...register(name, { 
         required,
+        minLength: {
+          value: 5,
+          message: "Password must have at least 5 characters"
+        },
        })} 
       
       />
