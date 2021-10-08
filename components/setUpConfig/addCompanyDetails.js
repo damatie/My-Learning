@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { set, useForm } from "react-hook-form";
 import Button from "../../components/shared/forms/button"
 
@@ -13,11 +14,11 @@ export default function addCompanyDetails(props){
     {
       !isEdit? 
       <div className=" w-full text-center"> 
-      <span className=" text-primary text-lg font-medium block"> Add Company Details</span>
-      <span className="text-sm text-primary block">
-        Kindly fill in the details of your company
-      </span>
-   </div>
+        <span className=" text-primary text-lg font-medium block"> Add Company Details</span>
+        <span className="text-sm text-primary block">
+          Kindly fill in the details of your company
+        </span>
+      </div>
    :
    <div className=" w-full text-center"> 
       <span className=" text-primary text-lg font-medium block"> Edit Company Details</span>

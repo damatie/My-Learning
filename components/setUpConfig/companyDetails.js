@@ -3,7 +3,7 @@ export default function CompanyDetails(props){
   return(
     <div className=" w-6/12 mx-auto px-10 py-5">
     <div className=" w-full text-left border-b border-secondary pb-3"> 
-      <span className=" text-primary text-lg font-medium block">
+      <span className=" text-primary text-lg font-medium block capitalize">
         Company’s details
       </span>
     </div>

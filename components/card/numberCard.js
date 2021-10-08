@@ -8,7 +8,7 @@ function NumberCard({title,number,active}) {
                 <h4 className='text-base pb-3'>{title}</h4>
                 <div className='flex justify-between items-center'>
                     <h2 className='text-4xl font-semibold'>{number}</h2>
-                    <i class="las la-users text-5xl"></i>
+                    <i className="las la-users text-5xl"></i>
                 </div>
             </a>
         </Link>

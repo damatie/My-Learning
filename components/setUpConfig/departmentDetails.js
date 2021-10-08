@@ -10,23 +10,31 @@ export default function CompanyDetails(props){
   const [addInput, setAddInput] = useState([])
   const {register,formState: { errors }, handleSubmit,watch } = useForm()
 
-  // Onclick add input for new department
+  // On click add input for new department
   function handelAddInput (){
     setAddInput([...addInput,{department:''}])
     // console.log("working")
   }
-   // On Change Update add department array based on index
-
+   // On change update add input array based on index
    function handelInputChange(value,i){
     const  list = [...addInput]
-    const changed = list[i].department = value
-     console.log(value,i,changed )
+     list[i].department = value
   }
-  // Onclick Save input for new department
+   // On click delete department array based on index
+   function removeInput(i){
+    addInput.splice(i,1)
+    setAddInput([...addInput])
+  }
+  // On click Save input for new department
   function handelSave (){
     setDepartment([...department,...addInput])
     setAddInput([])
     console.log("Saved")
+  }
+   // On click delete department array based on index
+   function handleDelete(i){
+    department.splice(i,1)
+    setDepartment([...department])
   }
  
 
@@ -51,13 +59,17 @@ export default function CompanyDetails(props){
       <div className="grid grid-cols-1 gap-4 pt-1">
         <span className=" space-y-3">
         { department.map((list, i) => (
-          <span className="h-12  flex bg-accent text-primary font-semibold rounded px-4" key={i}>
-            <span className=" w-10/12 inline-block leading-10 pt-1 capitalize ">{list.department}</span>
-            <span className=" w-2/12 inline-block leading-10 pt-2 text-right space-x-1">
+          <span key={i} className=" flex">
+            <span className="h-12 w-10/12 bg-accent text-primary font-semibold rounded px-4" >
+              <span className=" w-full  inline-block leading-10 pt-1 capitalize ">{list.department}</span>
+            </span>
+            <span className=" w-2/12 inline-block leading-10 pt-2 text-left pl-3 space-x-1">
               <span className="  inline-block cursor-pointer">
                 <i className="las la-edit text-call-to-action text-2xl"></i>
               </span>
-              <span className=" inline-block cursor-pointer"> 
+              <span 
+              onClick ={(e) =>handleDelete(i)}
+                className=" inline-block cursor-pointer"> 
                 <i className="lar la-trash-alt text-2xl text-error"></i>
               </span>
             </span>
@@ -66,12 +78,23 @@ export default function CompanyDetails(props){
           }
         </span>
         { addInput.map((list, i) => (
-          <span className=" block py-0"  key={i} >
-          <InputText  type = "text" label="Department Name " 
-            defaultValue={list.department}
-            onChange={ (e) => handelInputChange(e.target.value,i)}
-            />
-            {list.department}
+          <span className=" flex py-0"  key={i} >
+            <span className=" w-10/12 inline-block">
+              <InputText  name={"addInput"+i} type = "text" label="Department Name " 
+              register={register}
+              defaultValue={list.department}
+              onChange={ (e) => handelInputChange(e.target.value,i)}
+              />
+              {list.department}
+            </span>
+            <span className=" w-1/12 inline-block leading-10 pt-7 text-left pl-3 space-x-1">
+              <span 
+              onClick ={(e) =>removeInput(i)}
+                className=" inline-block cursor-pointer"> 
+                {/* <i className="lar la-trash-alt text-2xl text-error"></i> */}
+                <i className="las la-times-circle text-2xl text-error"></i>
+              </span>
+            </span>
           </span>
         ))
         }
@@ -84,7 +107,7 @@ export default function CompanyDetails(props){
         { addInput.length >0?
           <div className=" text-center mt-7 space-x-3">
             <Button
-              onClick={(e)=> handelSave(addInput)}
+              onClick={(e)=> handelSave()}
               className=" bg-call-to-action text-white text-sm uppercase w-32 py-3 rounded font-medium"
               label="CREATE"
             />

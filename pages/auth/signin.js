@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import AuthLayout from "../../components/layouts/authLayout"
 import Button from "../../components/shared/forms/button"
 import Icon from "../../components/shared/icon"
@@ -14,7 +15,7 @@ export default function Signin(){
         <span className="block text-md font-bold">Welcome Back!</span>
         <span className="block text-sm text-text-low-light font-medium">Login to your Account </span>
         <div className=" block w-full my-6">
-        <Link href="#">
+        <Link href="/">
           <span
           className=" text-primary font-medium text-sm border py-3 rounded-md w-full justify-center flex cursor-pointer">
             <Icon
