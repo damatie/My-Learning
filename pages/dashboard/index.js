@@ -19,7 +19,7 @@ function index() {
                         {/* <div className='w-full flex h-2/6 justify-between space-x-4'> */}
                         <div className='w-full flex  justify-between space-x-4'>
                             {dataTrainingCard?.map ((trainingData,i) => (
-                                <NumberCard title={trainingData.title} number={trainingData.number} active={trainingData.active} />
+                                <NumberCard key={i} title={trainingData.title} number={trainingData.number} active={trainingData.active} />
                             ))}
                         </div>
                         <div className='h-4/5  w-full'>
