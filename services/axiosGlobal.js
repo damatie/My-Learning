@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const $API_HOST = process.env.APP_BASE_URL;
+const $API_HOST = process.env.NEXT_PUBLIC_APP_BASE_URL;
 
 export const $AuthHeader = {
   Accept: 'application/json',
