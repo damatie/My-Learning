@@ -71,7 +71,7 @@ export default function NavbarHome() {
                     <i onClick={()=>toggleNavBtn(navBtn)} className='las la-bars text-3xl pointer font-semibold'></i>
                     {navBtn && (
                         <ul className=' nav__links flex  bg-accent text-center w-full flex-col fixed right-0 p-5 top-0 h-full'>
-                            <i className='ml-auto' onClick={()=>toggleNavBtn(navBtn)} className='las la-times  ml-auto text-3xl pointer font-semibold'></i>
+                            <i onClick={()=>toggleNavBtn(navBtn)} className='las la-times  ml-auto text-3xl pointer font-semibold'></i>
                             <li className=''>
                                 <Link href='/'>
                                 <a   className='transition-all text-base leading-7 inline-block  font-normal not-italic text-gray-700 mb-1 mx-2 border-b-4 rounded-sm   border-transparent focus:border-success focus:text-success hover:text-success hover:border-success active:text-success active:border-success' onClick={()=>toggleNavBtn(navBtn)} >Home</a>
@@ -101,7 +101,7 @@ export default function NavbarHome() {
                                 <Link href='/auth/signup'>
                                     <a className=''>
                                         <Button
-                                        className=' inline-block ease-in-out p-3 text-base transition duration-300 text-white rounded-md bg-call-to-action hover:bg-success font-semibold'
+                                        className=' inline-block ease-in-out py-2 ml-2 px-3 text-base transition duration-300 text-white rounded-md bg-call-to-action hover:bg-success font-semibold'
                                         label='Create Account'
                                         />
                                     </a>

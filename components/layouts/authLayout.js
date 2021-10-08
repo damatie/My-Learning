@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -13,6 +14,7 @@ export default function authLayout({ children }) {
       <div className="lg:hidden xl:block  fixed left-0 px-10 ">
         <div className="w-full mt-32">
           <Image
+          alt ='my learning'
           src="/assets/img/others/Logo.png"
           width = {231}
           height = {46}

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { set, useForm } from "react-hook-form";
 import Button from "../../components/shared/forms/button"
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import ConfigLayout from '../../../components/layouts/config'
 import AddCompanyDetails from '../../../components/setUpConfig/addCompanyDetails'
 import DepartmentDetails from '../../../components/setUpConfig/departmentDetails'
