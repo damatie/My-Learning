@@ -1,6 +1,6 @@
 function ChartCard() {
     return (
-        <div className='h-full py-3 bg-white rounded-lg shadow-2xl text-primary flex flex-col justify-between'>
+        <div className='h-full py-3 bg-white rounded-lg shadow-lg text-primary flex flex-col justify-between'>
             <h3 className='text-center font-semibold'>Number of Employees</h3>
             <div className='chart-area'></div>
             <div className='chart-info w-11/12 mx-auto justify-between flex flex-wrap'>

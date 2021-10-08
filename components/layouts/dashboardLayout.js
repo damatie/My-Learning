@@ -6,7 +6,7 @@ import HeadLayout from './headLayout';
 
 function DashboardLayout({children}) {
 
-    const [reduceAppSideNav, setReduceAppSideNav] = useState(true)
+    const [reduceAppSideNav, setReduceAppSideNav] = useState(false)
 
     return (
         <>

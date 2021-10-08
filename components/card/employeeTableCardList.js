@@ -1,3 +1,6 @@
+import { employeeListData } from "../data/employeeListData";
+import TableCardItem from "./tableCardItem";
+
 function EmployeeTableCardList() {
     return (
         <table className='table-fixed border-separate w-full text-left space-y-8'>
@@ -13,96 +16,11 @@ function EmployeeTableCardList() {
                 </tr>
             </thead>
             <tbody>
-                <tr className=''>
-                    <td className='pb-3 text-sm font-medium text-primary'><input type='checkbox' /></td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adams Bedford</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adamsbedford@gmail.com</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>HOD, Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>+2349077799999</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>6</td>
-                </tr>
-                <tr className=''>
-                    <td className='pb-3 text-sm font-medium text-primary'><input type='checkbox' /></td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adams Bedford</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adamsbedford@gmail.com</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>HOD, Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>+2349077799999</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>6</td>
-                </tr>
-                <tr className=''>
-                    <td className='pb-3 text-sm font-medium text-primary'><input type='checkbox' /></td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adams Bedford</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adamsbedford@gmail.com</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>HOD, Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>+2349077799999</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>6</td>
-                </tr>
-                <tr className=''>
-                    <td className='pb-3 text-sm font-medium text-primary'><input type='checkbox' /></td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adams Bedford</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adamsbedford@gmail.com</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>HOD, Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>+2349077799999</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>6</td>
-                </tr>
-                <tr className=''>
-                    <td className='pb-3 text-sm font-medium text-primary'><input type='checkbox' /></td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adams Bedford</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adamsbedford@gmail.com</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>HOD, Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>+2349077799999</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>6</td>
-                </tr>
-                <tr className=''>
-                    <td className='pb-3 text-sm font-medium text-primary'><input type='checkbox' /></td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adams Bedford</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adamsbedford@gmail.com</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>HOD, Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>+2349077799999</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>6</td>
-                </tr>
-                <tr className=''>
-                    <td className='pb-3 text-sm font-medium text-primary'><input type='checkbox' /></td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adams Bedford</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adamsbedford@gmail.com</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>HOD, Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>+2349077799999</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>6</td>
-                </tr>
-                <tr className=''>
-                    <td className='pb-3 text-sm font-medium text-primary'><input type='checkbox' /></td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adams Bedford</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adamsbedford@gmail.com</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>HOD, Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>+2349077799999</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>6</td>
-                </tr>
-                <tr className=''>
-                    <td className='pb-3 text-sm font-medium text-primary'><input type='checkbox' /></td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adams Bedford</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adamsbedford@gmail.com</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>HOD, Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>+2349077799999</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>6</td>
-                </tr>
-                <tr className=''>
-                    <td className='pb-3 text-sm font-medium text-primary'><input type='checkbox' /></td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adams Bedford</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Adamsbedford@gmail.com</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>HOD, Marketing</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>+2349077799999</td>
-                    <td className='pb-3 text-sm font-medium text-primary break-words'>6</td>
-                </tr>
+            {employeeListData?.map((employeeData,index)=>{
+                return (
+                    <TableCardItem key={index} employeeData={employeeData} />
+                )
+            })}
             </tbody>
         </table>
     );

@@ -2,17 +2,21 @@
 import { useState } from "react";
 import Link from 'next/link'
 
-import EmployeeTableCardList from "../../components/card/employeeTableCardList";
-import DashboardLayout from "../../components/layouts/dashboardLayout";
-import DeleteModal from "../../components/modal/deleteModal";
-import EditEmployeeColoredInputs from "../../components/modal/editEmployeeColoredInputs";
-import Button from "../../components/shared/forms/button";
+
+import EditEmployeeColoredInputs from "../../../components/modal/editEmployeeColoredInputs";
+import Button from "../../../components/shared/forms/button";
+import DashboardLayout from "../../../components/layouts/dashboardLayout";
+import DeleteModal from "../../../components/modal/deleteModal";
+import EmployeeTableCardList from "../../../components/card/employeeTableCardList";
+import CreateEmployee from "../../../components/modal/createEmployee";
 
 function index() {
-
+    
+    const [openAddEmployeeModal, setOpenAddEmployeeModal] = useState(false)
     const [openDeleteModal, setOpenDeleteModal] = useState(false)
     const [openEditModal, setOpenEditModal] = useState(false)
     const [hideBtns, setHideBtns] = useState(true)
+    
 
     const clickedDeleteModal = (prev) => {
         setOpenDeleteModal(!prev)
@@ -20,6 +24,14 @@ function index() {
 
     const clickedEditModal = (prev) => {
         setOpenEditModal(!prev)
+    }
+
+    const clickedCreateModal = (prev) => {
+        setOpenCreateModal(!prev)
+    }
+
+    const clickedAddEmployeeModal = (prev) => {
+        setOpenAddEmployeeModal(!prev)
     }
 
     return (
@@ -32,11 +44,7 @@ function index() {
                             <Button className='py-2 px-8 rounded-sm bg-transparent border-call-to-action border text-call-to-action font-semibold uppercase text-sm ml-5' label='edit employee' onClick={()=>clickedEditModal(openEditModal)} />
                         </>
                     ) }
-                    <Link href='/'>
-                        <a>
-                            <Button className='py-2 px-8 rounded-sm bg-call-to-action border-call-to-action border text-white font-semibold uppercase text-sm ml-5' label='create employee' />
-                        </a>
-                    </Link>
+                        <Button className='py-2 px-8 rounded-sm bg-call-to-action border-call-to-action border text-white font-semibold uppercase text-sm ml-5' label='create employee' onClick={()=>clickedAddEmployeeModal(openAddEmployeeModal)} />
                 </div>
                 <div className='bg-white mb-10 rounded-lg w-full mt-5 p-5'>
                     <EmployeeTableCardList/>
@@ -66,6 +74,8 @@ function index() {
             </DashboardLayout>
             {openDeleteModal && <DeleteModal openDeleteModal={openDeleteModal} setOpenDeleteModal={setOpenDeleteModal} />}
             {openEditModal && <EditEmployeeColoredInputs openEditModal={openEditModal} setOpenEditModal={setOpenEditModal} />}
+            {/* {openCreateModal && <CreateEmployee openCreateModal={openCreateModal} setOpenCreateModal={setOpenCreateModal} />} */}
+            {openAddEmployeeModal && <CreateEmployee openAddEmployeeModal={openAddEmployeeModal} setOpenAddEmployeeModal={setOpenAddEmployeeModal} />}
         </>
     );
 }
