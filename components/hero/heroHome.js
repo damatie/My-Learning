@@ -13,7 +13,7 @@ export default function HeroHome () {
             <Link href='/auth/signup'>
               <a className=''>  
                 <Button
-                className='mt-3 inline-block sm:mt-5 ease-in-out py-3 px-8 text-base transition duration-300 text-white rounded-md bg-call-to-action hover:bg-success font-semibold'
+                className='mt-3 inline-block sm:mt-5 ease-in-out py-3 px-8 text-base transition duration-300 text-white rounded-md bg-call-to-action font-semibold'
                 label='Create Account'
                 />
               </a>
