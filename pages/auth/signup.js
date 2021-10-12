@@ -9,6 +9,7 @@ import {InputText,InputEmail,InputPwd} from "../../components/shared/forms/input
 import { useForm } from "react-hook-form"
 import { createAccount, googleAuth } from "../../services/apiFactory"
 import AlertCard from "../../components/shared/alertCard"
+import { AlertTimeOut } from "../../utils/alertTimeout";
 
 export default function Signup(){
   const pwdType = 'password'
@@ -28,13 +29,6 @@ export default function Signup(){
       {isPwdConfirmVisible? setConfirmPasswordType('text')|| setIsPwdConfirmVisible(!isPwdConfirmVisible):setConfirmPasswordType('password')||setIsPwdConfirmVisible(!isPwdConfirmVisible)}
     }
   }
-  // Hide alert
-   function alertTimeOut(){
-    const timer = setTimeout(() => {
-      setAlert()
-        }, 10000);
-        return () => clearTimeout(timer);
-   } 
   //  Google Auth
   const googleSign = async() =>{
     const res = googleAuth().then(result => {
@@ -53,12 +47,15 @@ export default function Signup(){
       password: data.password
     }
     createAccount(payload).then(result => {
-      const status =  result.data.status
+      const status =  result.data.message
       console.log(status)
         setIsLoading(false)
         setAlert(<AlertCard msg={status}/>)
-        alertTimeOut()
-    })
+        AlertTimeOut()
+    }).catch((error) => {
+      console.log(error)
+      setIsLoading(false)
+    });
   }
 
    // Handle form validation 
