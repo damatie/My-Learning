@@ -1,7 +1,10 @@
-import { employeeListData } from "../data/employeeListData";
+// import { employeeListData } from "../data/employeeListData";
 import TableCardItem from "./tableCardItem";
 
-function EmployeeTableCardList() {
+function EmployeeTableCardList({employeeListData,highlightEmployee,hideBtns,deleteHighlightEmployee,}) {
+
+
+
     return (
         <table className='table-fixed border-separate w-full text-left space-y-8'>
             <thead>
@@ -18,7 +21,7 @@ function EmployeeTableCardList() {
             <tbody>
             {employeeListData?.map((employeeData,index)=>{
                 return (
-                    <TableCardItem key={index} employeeData={employeeData} />
+                    <TableCardItem key={index} id={index} employeeData={employeeData} highlightEmployee={highlightEmployee} hideBtns={hideBtns} deleteHighlightEmployee={deleteHighlightEmployee} />
                 )
             })}
             </tbody>
