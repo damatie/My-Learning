@@ -1,8 +1,12 @@
+import { trainingListData } from "../data/trainingListData";
+import { employeeListData } from "../data/employeeListData";
+import TableTrainingCardItem from "./tableTrainingCardItem";
+
 function TableCardList() {
     return (
-        <table className='table-fixed w-full text-left'>
+        <table className='table-fixed w-full text-left space-y-10'>
             <thead>
-                <tr className='text-table-header'>
+                <tr className='text-table-header '>
                     <th className='font-medium text-sm'>Trainings</th>
                     <th className='font-medium text-sm'>No of Employees</th>
                     <th className='font-medium text-sm'>Department</th>
@@ -12,30 +16,11 @@ function TableCardList() {
                 </tr>
             </thead>
             <tbody>
-                <tr className=''>
-                    <td className='pb-1 text-sm font-medium text-primary'>Azure</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>10</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>DevOps</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>200</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>4 weeks</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>18th March 2021</td>
-                </tr>
-                <tr className=''>
-                    <td className='pb-1 text-sm font-medium text-primary'>Azure</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>10</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>DevOps</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>200</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>4 weeks</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>18th March 2021</td>
-                </tr>
-                <tr className=''>
-                    <td className='pb-1 text-sm font-medium text-primary'>Azure</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>10</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>DevOps</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>200</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>4 weeks</td>
-                    <td className='pb-1 text-sm font-medium text-primary'>18th March 2021</td>
-                </tr>
+                {trainingListData?.splice(0,3)?.map((trainingData,index)=>{
+                    return (
+                        <TableTrainingCardItem key={index} trainingData={trainingData} />
+                    )
+                })}
             </tbody>
         </table>
     );
