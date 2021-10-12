@@ -9,6 +9,7 @@ export default function CompanyDetails(props){
   const [department, setDepartment] = useState( [])
   const [addInput, setAddInput] = useState([])
   const {register,formState: { errors }, handleSubmit,watch } = useForm()
+  console.log(department)
 
   // On click add input for new department
   function handelAddInput (){
@@ -20,7 +21,7 @@ export default function CompanyDetails(props){
     const  list = [...addInput]
      list[i].department = value
   }
-   // On click delete department array based on index
+   // On click delete department input array based on index
    function removeInput(i){
     addInput.splice(i,1)
     setAddInput([...addInput])
@@ -31,7 +32,7 @@ export default function CompanyDetails(props){
     setAddInput([])
     console.log("Saved")
   }
-   // On click delete department array based on index
+   // On click delete department detail array based on index
    function handleDelete(i){
     department.splice(i,1)
     setDepartment([...department])
@@ -82,7 +83,6 @@ export default function CompanyDetails(props){
             <span className=" w-10/12 inline-block">
               <InputText  name={"addInput"+i} type = "text" label="Department Name " 
               register={register}
-              defaultValue={list.department}
               onChange={ (e) => handelInputChange(e.target.value,i)}
               />
               {list.department}
