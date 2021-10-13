@@ -51,7 +51,7 @@ export default function Signin(){
   useEffect(() => {
     const check = checkAuthorizedUser()
     if(check){
-      Router.push('/dashboard')
+      Router.push('/admin/dashboard')
     }
   }, []);
 
