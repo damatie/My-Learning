@@ -14,7 +14,13 @@ function TableCardItem({employeeData : {name,email,department,jobTitle,phoneNumb
 
     return (
         <tr className=''>
-            <td className='pb-3 text-sm font-medium text-primary pt-5'><input type='radio' name='employeeTab' onClick={(e)=>highlightEmployee(e,hideBtns,id)} /></td>
+            <td className='pb-3 text-sm font-medium text-primary pt-5'>
+                {/* <input type='radio' id='employeeTab' name='employeeTab' onClick={(e)=>highlightEmployee(e,hideBtns,id)} className='hidden' /> */}
+                <input type='checkbox' id='employeeTab' name='employeeTab' onClick={(e)=>highlightEmployee(e,hideBtns,id)} />
+                {/* <label htmlFor='employeeTab' onClick={(e)=>highlightEmployee(e,hideBtns,id)} >
+                    {<i className='las la-stop text-3xl'></i>}
+                </label> */}
+            </td>
             {/* <td className='pb-3 text-sm font-medium text-primary pt-5'onClick={(e)=>highlightEmployee(e,hideBtns,id)} >
                 <i className='las la-check-circle'></i>
             </td> */}
