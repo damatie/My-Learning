@@ -101,7 +101,7 @@ export default function NavbarHome() {
                                 <Link href='/auth/signup'>
                                     <a className=''>
                                         <Button
-                                        className=' inline-block ease-in-out py-2 ml-2 px-3 text-base transition duration-300 text-white rounded-md bg-call-to-action hover:bg-success font-semibold'
+                                        className=' inline-block ease-in-out py-2 ml-2 px-3 text-base transition duration-300 text-white rounded-md bg-call-to-action font-semibold'
                                         label='Create Account'
                                         />
                                     </a>

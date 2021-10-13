@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import ProfileCard from '../../components/card/profile/profileCard';
-import ProfileListTrainingCard from '../../components/card/profile/profileListTrainingCard';
-import ProfileTotalTrainingCard from '../../components/card/profile/profileTotalTrainingCard';
+import ProfileCard from '../../../components/card/profile/profileCard';
+import ProfileListTrainingCard from '../../../components/card/profile/profileListTrainingCard';
+import ProfileTotalTrainingCard from '../../../components/card/profile/profileTotalTrainingCard';
 
-import DashboardLayout from "../../components/layouts/dashboardLayout";
-import Button from "../../components/shared/forms/button";
+import DashboardLayout from "../../../components/layouts/dashboardLayout";
+import Button from "../../../components/shared/forms/button";
 
 const Profile = () => {
     return (
