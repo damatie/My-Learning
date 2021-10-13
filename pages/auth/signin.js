@@ -31,7 +31,7 @@ export default function Signin(){
       }
         setIsLoading(false)
         setAlert(<AlertCard msg={status}/>)
-        Router.push('/dashboard')
+        Router.push('/admin/dashboard')
         // AlertTimeOut(setAlert= {setAlert})
     }).catch(error => {
       const status =  error.response.data.message
