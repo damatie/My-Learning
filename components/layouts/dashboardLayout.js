@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import DashboardSideNav from "../navBar/dashboardSideNav";
 import { useState,useEffect  } from "react" 
 import DashboardTopNav from "../navBar/dashboardTopNav";
@@ -8,6 +9,7 @@ import Link from "next/link";
 import Secure from "../shared/secure";
 import Button from "../shared/forms/button";
 
+const [reduceAppSideNav, setReduceAppSideNav] = useState(false)
 
 function DashboardLayout({children}) {
     const [reduceAppSideNav, setReduceAppSideNav] = useState(true) 
