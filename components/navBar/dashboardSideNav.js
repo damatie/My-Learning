@@ -17,7 +17,7 @@ function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
     const sideNavBtn  = (prev) =>{
         setReduceAppSideNav(!prev)
     }
-    
+
     return (
         <nav className='w-11/12 mx-auto py-2 h-full flex flex-col justify-between'>
             <div className=''>
