@@ -9,7 +9,7 @@ function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
     const router = useRouter()
     // LOG OUT FUNCTION
     function logOut(){
-     userLogOut("token")
+     userLogOut("token") 
      router.push("/auth/signin")
     }
 
