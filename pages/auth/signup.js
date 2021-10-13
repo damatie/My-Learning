@@ -114,7 +114,7 @@ export default function Signup(){
               <InputPwd  name = "password"   label="Password  " 
                 type={passwordType}
                 register={register} required
-               onClick={(e) => show('password')} 
+               onClick={() => show('password')} 
                />
                 <span className=" text-error text-xs">
                    {errors.password?.type === 'required' && "Password is required"}
