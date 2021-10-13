@@ -7,9 +7,6 @@ import { checkAuthorizedUser } from "../../services/auth"
 import { useRouter } from "next/router"
 import Link from "next/link";
 import Secure from "../shared/secure";
-import Button from "../shared/forms/button";
-
-const [reduceAppSideNav, setReduceAppSideNav] = useState(false)
 
 function DashboardLayout({children}) {
     const [reduceAppSideNav, setReduceAppSideNav] = useState(true) 
