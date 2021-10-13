@@ -19,11 +19,11 @@ function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
     }
 
     return (
-        <nav className='w-11/12 mx-auto py-2 h-full flex flex-col justify-between'>
+        <nav className='w-10/12 mx-auto py-2 h-full flex flex-col justify-between'>
             <div className=''>
                 <div className='py-3 pointer flex items-center justify-end cursor-pointer' onClick={()=>sideNavBtn(reduceAppSideNav)} >
                     <Icon name='app-nav-toggle' width={40} height={40}  />
-                </div>                
+                </div>
 
                 { reduceAppSideNav  ?  (
                     <div className='logo mx-auto flex items-center justify-center pb-3 mb-2'>
@@ -39,7 +39,7 @@ function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
                         reduceAppSideNav ? 
                         <li className={router.pathname == '/admin/dashboard' ? 'mb-2 w-full grid place-items-center mx-auto' : 'mb-2 w-full grid place-items-center mx-auto' }>
                             <Link href="/admin/dashboard">
-                                <a className={router.pathname == '/admin/dashboard' ? 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full justify-center bg-accent text-primary text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary hover:text-primary' : 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full justify-center text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary text-white hover:text-primary' }>
+                                <a className={router.pathname == '/admin/dashboard' ? 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full bg-accent text-primary text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary hover:text-primary' : 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary text-white hover:text-primary' }>
                                     <i className='las la-tachometer-alt text-2xl'></i>
                                     { reduceAppSideNav && <span className='pl-2'>Dashboard</span>}
                                 </a>
@@ -59,9 +59,9 @@ function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
                         reduceAppSideNav ? 
                         <li className={router.pathname == '/admin/dashboard/employees' ? 'mb-2 w-full grid place-items-center mx-auto' : 'mb-2 w-full grid place-items-center mx-auto' }>
                             <Link href="/admin/dashboard/employees">
-                                <a className={router.pathname == '/admin/dashboard/employees' ? 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full justify-center bg-accent text-primary text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary hover:text-primary' : 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full justify-center text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary text-white hover:text-primary' }>
-                                    <i className='las la-user-circle text-2xl'></i>
-                                    { reduceAppSideNav && <span className='pl-2'>Employee</span>}
+                                <a className={router.pathname == '/admin/dashboard/employees' ? 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full bg-accent text-primary text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary hover:text-primary' : 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary text-white hover:text-primary' }>
+                                        <i className='las la-user-circle text-2xl'></i>
+                                        { reduceAppSideNav && <span className='pl-2'>Employee</span>}
                                 </a>
                             </Link>
                         </li>
@@ -80,9 +80,9 @@ function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
                         reduceAppSideNav ? 
                         <li className={router.pathname == '/admin/dashboard/trainings' ? 'mb-2 w-full grid place-items-center mx-auto' : 'mb-2 w-full grid place-items-center mx-auto' }>
                             <Link href="/admin/dashboard/trainings">
-                                <a className={router.pathname == '/admin/dashboard/trainings' ? 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full justify-center bg-accent text-primary text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary hover:text-primary' : 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full justify-center text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary text-white hover:text-primary' }>
+                                <a className={router.pathname == '/admin/dashboard/trainings' ? 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full bg-accent text-primary text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary hover:text-primary' : 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary text-white hover:text-primary' }>
                                     <i className='las la-user-graduate text-2xl'></i>
-                                    { reduceAppSideNav && <span className='pl-2'>Employee</span>}
+                                    { reduceAppSideNav && <span className='pl-2'>trainings</span>}
                                 </a>
                             </Link>
                         </li>
@@ -101,7 +101,7 @@ function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
                         reduceAppSideNav ? 
                         <li className={router.pathname == '/admin/dashboard/settings' ? 'mb-2 w-full grid place-items-center mx-auto' : 'mb-2 w-full grid place-items-center mx-auto' }>
                             <Link href="/admin/dashboard/settings">
-                                <a className={router.pathname == '/admin/dashboard/settings' ? 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full justify-center bg-accent text-primary text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary hover:text-primary' : 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full justify-center text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary text-white hover:text-primary' }>
+                                <a className={router.pathname == '/admin/dashboard/settings' ? 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full bg-accent text-primary text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary hover:text-primary' : 'capitalize inline-flex px-1 py-1 rounded-md font-semibold items-center transition-all text-center w-full text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary text-white hover:text-primary' }>
                                     <i className='las la-cog text-2xl'></i>
                                     { reduceAppSideNav && <span className='pl-2'>Settings</span>}
                                 </a>
@@ -123,7 +123,7 @@ function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
                 onClick= {() => logOut()}
                 className={`${!reduceAppSideNav ? 'cursor-pointer  mb-2 w-10/12 grid place-items-center mx-auto' : 'cursor-pointer mb-2 w-full grid place-items-center mx-auto'}`}>
                             <p className={`${ !reduceAppSideNav ? ' inline-flex rounded-md font-semibold p-1 items-center text-center w-1/2 justify-center text-base active:bg-accent text-white hover:text-primary  focus:bg-accent hover:bg-accent active:text-primary' : 'inline-flex px-1 py-1 rounded-md font-semibold items-center text-center w-full justify-center text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary text-white hover:text-primary' }`}>
-                            <i className='las la-sign-out-alt text-2xl'></i>                            
+                            <i className='las la-sign-out-alt text-2xl'></i>
                             {reduceAppSideNav && <span className='pl-1'>Logout</span>}
                         </p>
                 </li>

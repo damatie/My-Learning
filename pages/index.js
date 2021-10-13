@@ -10,10 +10,11 @@ import HomeLayout from '../components/layouts/homeLayout'
 import Button from '../components/shared/forms/button'
 import Sponsor from '../components/sponsor/sponsor'
 import Testimonial from '../components/testimonial/testimonial'
+import { useAppData } from '../context/globalState';
 
 export default function Home() {
 
-
+  const [{user}] = useAppData()
 
   return (
     <HomeLayout>

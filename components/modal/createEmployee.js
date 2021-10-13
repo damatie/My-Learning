@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useAppData } from "../../context/globalState";
 import { dataDepartmentList } from "../data/dataDepartmentList";
 
 
@@ -10,8 +11,10 @@ import { SelectTag } from "../shared/forms/selectTag";
 import EmployeeRow from "./employeeRow";
 
 
-function CreateEmployee({openAddEmployeeModal,setOpenAddEmployeeModal}) {
+function CreateEmployee() {
 
+
+    const [{openAddEmployeeModal},dispatch] = useAppData()
     const router = useRouter()
 
     const [newEmployee, setNewEmployee] = useState({
@@ -60,21 +63,25 @@ function CreateEmployee({openAddEmployeeModal,setOpenAddEmployeeModal}) {
     }
 
 
-    const clickedCancelCreateModal = (prev) => {
-        setOpenAddEmployeeModal(!prev)
+    const toggleCreateEmployeeBtn = () => {
+        dispatch({
+            type:"TOGGLE_CREATE_MODAL",
+            openAddEmployeeModal:!openAddEmployeeModal
+        })
     }
 
+    
     const clickedCancelBgCreateModal = (e,prev) => {
         if(e.target.classList.contains('create-bg')){
-            setOpenAddEmployeeModal(!prev)
+            toggleCreateEmployeeBtn()
         }
     }
 
 
     return (
-        <div className='absolute h-full create-bg overflow-y-auto w-full left-0 top-0 bg-black bg-opacity-25 z-20' onClick={(e)=>clickedCancelBgCreateModal(e,openAddEmployeeModal)} >
+        <div className='absolute h-full create-bg overflow-y-auto w-full left-0 top-0 bg-black bg-opacity-25 z-20' onClick={clickedCancelBgCreateModal} >
         <div className='bg-white absolute left-1/3 top-4 w-5/12 xl:w-5/12 p-5 pb-10 rounded-sm'>
-            <div className='flex justify-end items-center' onClick={()=>clickedCancelCreateModal(openAddEmployeeModal)} >
+            <div className='flex justify-end items-center' onClick={toggleCreateEmployeeBtn} >
                 <i className='las la-times text-3xl font-semibold cursor-pointer'></i>
             </div>
             <h3 className='capitalize  text-xl text-primary'>Add employee</h3>

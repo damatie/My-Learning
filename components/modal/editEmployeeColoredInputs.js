@@ -1,29 +1,34 @@
 import { useForm } from "react-hook-form";
+import { useAppData } from "../../context/globalState";
 import { dataDepartmentList } from "../data/dataDepartmentList";
 import Button from "../shared/forms/button";
 import { InputText } from "../shared/forms/inputText";
 import { SelectTag } from "../shared/forms/selectTag";
 
-function EditEmployeeColoredInputs({openEditModal,setOpenEditModal,editSingleEmployee}) {
+function EditEmployeeColoredInputs({editSingleEmployee}) {
 
+    const [{openEditModal},dispatch] = useAppData()
 
-   const {register,formState: { errors }, handleSubmit,watch } = useForm()
+    const {register,formState: { errors }, handleSubmit,watch } = useForm()
 
-    const clickedCancelEditModal = (prev) => {
-        setOpenEditModal(!prev)
+    const toggleEditEmployeeBtn = () => {
+        dispatch({
+            type:"TOGGLE_EDIT_MODAL",
+            openEditModal:!openEditModal
+        })
     }
 
-    const clickedCancelBgEditModal = (e,prev) => {
+    const clickedCancelBgEditModal = (e) => {
         if(e.target.classList.contains('edit-bg')){
-            setOpenEditModal(!prev)
+            toggleEditEmployeeBtn()
         }
     }
 
 
     return (
-        <div className='absolute h-full edit-bg overflow-y-auto w-full left-0 top-0 bg-black bg-opacity-25 z-20' onClick={(e)=>clickedCancelBgEditModal(e,openEditModal)} >
+        <div className='absolute h-full edit-bg overflow-y-auto w-full left-0 top-0 bg-black bg-opacity-25 z-20' onClick={(e)=>clickedCancelBgEditModal(e)} >
             <div className='bg-white absolute left-1/3 top-4 w-5/12 xl:w-5/12 p-5 pb-10 rounded-sm text-primary'>
-                <div className='flex justify-end items-center' onClick={()=>clickedCancelEditModal(openEditModal)} >
+                <div className='flex justify-end items-center' onClick={toggleEditEmployeeBtn} >
                     <i className='las la-times text-3xl font-semibold cursor-pointer'></i>
                 </div>
                 <h3 className='capitalize  text-xl '>edit employee</h3>
@@ -36,7 +41,7 @@ function EditEmployeeColoredInputs({openEditModal,setOpenEditModal,editSingleEmp
                             <input
                             id='name'
                             type='text'
-                            defaultValue={editSingleEmployee?.name.split(' ')[0]}
+                            defaultValue={editSingleEmployee?.name?.split(' ')[0]}
                             className= " rounded-md text-sm  py-1  w-full outline-none"
                             // onChange={(e)=>setNewEmployee({...newEmployee,firstName:e.target.value})}
                             />
@@ -49,7 +54,7 @@ function EditEmployeeColoredInputs({openEditModal,setOpenEditModal,editSingleEmp
                                 <input
                                 id='lname'
                                 type='text'
-                                defaultValue={editSingleEmployee?.name.split(' ')[1]}
+                                defaultValue={editSingleEmployee?.name?.split(' ')[1]}
                                 className= " rounded-md text-sm  py-1  w-full outline-none"
                                 // onChange={(e)=>setNewEmployee({...newEmployee,lastName:e.target.value})}
                                 />
@@ -81,14 +86,13 @@ function EditEmployeeColoredInputs({openEditModal,setOpenEditModal,editSingleEmp
                                     className='capitalize rounded-md text-sm  py-2 pb-1.5  w-full'
                                     // onChange={(e)=>setNewEmployee({...newEmployee,dept:e.target.value})}
                                 >
-                                <option defaultValue={editSingleEmployee.department} value={editSingleEmployee.department}>{editSingleEmployee.department}</option>
+                                <option defaultValue={editSingleEmployee?.department} value={editSingleEmployee?.department}>{editSingleEmployee?.department}</option>
                                     {dataDepartmentList?.map((department,index)=>{
                                         return (
                                             <>
                                                 if(department !==  editSingleEmployee?.department){
                                                     <option value={department} key={index}>{department}</option>
                                                 }
-                                                
                                             </>
                                         )
                                     }) }
