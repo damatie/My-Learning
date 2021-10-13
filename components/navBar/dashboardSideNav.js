@@ -6,7 +6,6 @@ import { userLogOut } from "../../services/auth"
 import { useRouter } from "next/router"
 
 function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
-    const Router = useRouter()
     // LOG OUT FUNCTION
     function logOut(){
      userLogOut("token")
