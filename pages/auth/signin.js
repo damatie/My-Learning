@@ -13,10 +13,19 @@ import { checkAuthorizedUser,setAuthorizedUser } from "../../services/auth"
 import { useRouter } from "next/router"
 
 export default function Signin(){
+  const pwdType = 'password'
+  const [isPwdVisible, setIsPwdVisible] = useState(true)
+	const [passwordType, setPasswordType] = useState(pwdType)
   const Router = useRouter()
   const [alert, setAlert] = useState('' || null)
   const [isLoading, setIsLoading] = useState(false)
-// 
+
+  // Onclick show and hide password
+	function show(value){
+		if(value==='password'){
+		{isPwdVisible? setPasswordType('text')|| setIsPwdVisible(!isPwdVisible):setPasswordType('password')||setIsPwdVisible(!isPwdVisible)}
+		}
+	}
   // Handle create account
   const handleLogin = async(data) =>{
     setIsLoading(true)
@@ -92,7 +101,9 @@ export default function Signin(){
                   </span>
               </span>
               <span>
-                <InputPwd name = "password" type = "password"  label="Password  " register={register} required />
+                <InputPwd
+                onClick={() => show('password')} 
+                 name = "password" type ={passwordType}  label="Password  " register={register} required />
                 <span className=" text-error text-xs">
                    {errors.password?.type === 'required' && "Password is required"}
                 </span>
