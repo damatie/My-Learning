@@ -6,10 +6,10 @@ import { useRouter } from "next/router"
 
 function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
     const Router = useRouter()
-    // LogOut user
+    // LOG OUT FUNCTION
     function logOut(){
      userLogOut("token")
-	Router.push("/auth/signin")
+     router.push("/auth/signin")
     }
 
     // TOGGLE SIDE NAV
