@@ -9,12 +9,12 @@ import DashboardLayout from "../../../components/layouts/dashboardLayout";
 import DeleteModal from "../../../components/modal/deleteModal";
 import EmployeeTableCardList from "../../../components/card/employeeTableCardList";
 import CreateEmployee from "../../../components/modal/createEmployee";
+import { useAppData } from "../../../context/globalState";
 
 function index() {
 
-    const [openAddEmployeeModal, setOpenAddEmployeeModal] = useState(false)
-    const [openDeleteModal, setOpenDeleteModal] = useState(false)
-    const [openEditModal, setOpenEditModal] = useState(false)
+    const [{openAddEmployeeModal,openDeleteModal,openEditModal},dispatch] = useAppData()
+
     const [hideBtns, setHideBtns] = useState(false)
     const [editSingleEmployee, setEditSingleEmployee] = useState({
         firstName:'',
@@ -56,39 +56,58 @@ function index() {
     const highlightEmployee = (e,prev,i) => {
         setHideBtns(true)
         setHighlightId(i)
+        console.log(e)
     }
 
     const deleteHighlightEmployee = (id) => {
         const editedEmployeeListData = [...employeeListData]
         editedEmployeeListData.splice(id,1)
+        console.log(id)
         setEmployeeListData(editedEmployeeListData)
-        setOpenDeleteModal(false)
+        const editSingleEmployeeListData = employeeListData[id]
+        setEditSingleEmployee(editSingleEmployeeListData)
+        console.log(editSingleEmployee)
         setHighlightId(null)
         setHideBtns(false)
+        toggleDeleteEmployeeBtn()
+    }
+    
+    const toggleEditEmployeeBtn = () => {
+        dispatch({
+            type:"TOGGLE_EDIT_MODAL",
+            openEditModal:!openEditModal
+        })
     }
 
     const editSelectedEmployee = (id) => {
-        // console.log(id)
         const editSingleEmployeeListData = employeeListData[id]
         setEditSingleEmployee(editSingleEmployeeListData)
-        console.log(editSingleEmployeeListData)
     }
 
-    const clickedDeleteModal = (prev) => {
-        setOpenDeleteModal(!prev)
-    }
 
-    const clickedEditModal = (prev,id) => {
-        setOpenEditModal(!prev)
+    const clickedEditModal = (id) => {
         editSelectedEmployee(id)
+        toggleEditEmployeeBtn()
     }
 
-    const clickedCreateModal = (prev) => {
-        setOpenCreateModal(!prev)
+    const clickedDeleteBtnModal = (id) => {
+        editSelectedEmployee(id)
+        toggleDeleteEmployeeBtn()
     }
 
-    const clickedAddEmployeeModal = (prev) => {
-        setOpenAddEmployeeModal(!prev)
+
+    const toggleCreateEmployeeBtn = () => {
+        dispatch({
+            type:"TOGGLE_CREATE_MODAL",
+            openAddEmployeeModal:!openAddEmployeeModal
+        })
+    }
+
+    const toggleDeleteEmployeeBtn = () => {
+        dispatch({
+            type:"TOGGLE_DELETE_MODAL",
+            openDeleteModal:!openDeleteModal
+        })
     }
 
 
@@ -99,11 +118,11 @@ function index() {
                 <div className='w-full flex justify-end'>
                     {hideBtns && (
                         <>
-                            <Button className='py-2 px-8 rounded-sm bg-transparent border-error border text-error font-semibold uppercase text-sm' label='delete employee' onClick={()=>clickedDeleteModal(openDeleteModal)} />
-                            <Button className='py-2 px-8 rounded-sm bg-transparent border-call-to-action border text-call-to-action font-semibold uppercase text-sm ml-5' label='edit employee' onClick={()=>clickedEditModal(openEditModal,highlightId)} />
+                            <Button className='py-2 px-8 rounded-sm bg-transparent border-error border text-error font-semibold uppercase text-sm' label='delete employee' onClick={()=>clickedDeleteBtnModal(highlightId)} />
+                            <Button className='py-2 px-8 rounded-sm bg-transparent border-call-to-action border text-call-to-action font-semibold uppercase text-sm ml-5' label='edit employee' onClick={()=>clickedEditModal(highlightId)} />
                         </>
                     ) }
-                        <Button className='py-2 px-8 rounded-sm bg-call-to-action border-call-to-action border text-white font-semibold uppercase text-sm ml-5' label='create employee' onClick={()=>clickedAddEmployeeModal(openAddEmployeeModal)} />
+                        <Button className='py-2 px-8 rounded-sm bg-call-to-action border-call-to-action border text-white font-semibold uppercase text-sm ml-5' label='create employee' onClick={toggleCreateEmployeeBtn} />
                 </div>
                 { employeeListData?.length === 0 ?
                     (
@@ -146,25 +165,22 @@ function index() {
             {/* {console.log(editSingleEmployee)} */}
             {   openDeleteModal &&
                 <DeleteModal
-                    openDeleteModal={openDeleteModal}
-                    setOpenDeleteModal={setOpenDeleteModal}
                     deleteHighlightEmployee={deleteHighlightEmployee}
-                    highlightId={highlightId}
-                    editSingleEmployee={editSingleEmployee}
-                />
-            }
-            {  openEditModal &&
-                <EditEmployeeColoredInputs
-                    openEditModal={openEditModal}
-                    setOpenEditModal={setOpenEditModal}
-                    editSelectedEmployee={editSelectedEmployee}
                     highlightId={highlightId}
                     editSingleEmployee={editSingleEmployee}
                     // editSingleEmployeeListData={editSingleEmployeeListData}
                 />
             }
-            {/* {openCreateModal && <CreateEmployee openCreateModal={openCreateModal} setOpenCreateModal={setOpenCreateModal} />} */}
-            {openAddEmployeeModal && <CreateEmployee openAddEmployeeModal={openAddEmployeeModal} setOpenAddEmployeeModal={setOpenAddEmployeeModal} />}
+            
+            {  openEditModal &&
+                <EditEmployeeColoredInputs
+                    editSelectedEmployee={editSelectedEmployee}
+                    highlightId={highlightId}
+                    editSingleEmployee={editSingleEmployee}
+                />
+            }
+
+            { openAddEmployeeModal &&    <CreateEmployee /> }
         </>
     );
 }

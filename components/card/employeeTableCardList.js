@@ -9,7 +9,7 @@ function EmployeeTableCardList({employeeListData,highlightEmployee,hideBtns,dele
         <table className='table-fixed border-separate w-full text-left space-y-8'>
             <thead>
                 <tr className='text-table-header'>
-                    <th className='font-medium text-sm w-8'><input type='checkbox' className='' /></th>
+                    <th className='font-medium text-sm w-8'></th>
                     <th className='font-medium text-sm w-1/6'>Name</th>
                     <th className='font-medium text-sm w-2/6'>Email</th>
                     <th className='font-medium text-sm w-1/6'>Department</th>
