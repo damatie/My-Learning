@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import Icon from "../shared/icon";
 import { userLogOut } from "../../services/auth"
 import { useRouter } from "next/router"
 
 function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
+      // SET ACTIVE LINK
+    const router = useRouter()
     // LOG OUT FUNCTION
     function logOut(){
      userLogOut("token")
@@ -16,11 +17,6 @@ function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
     const sideNavBtn  = (prev) =>{
         setReduceAppSideNav(!prev)
     }
-
-    // SET ACTIVE LINK
-    const router = useRouter()
-
-
 
     return (
         <nav className='w-11/12 mx-auto py-2 h-full flex flex-col justify-between'>
