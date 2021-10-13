@@ -20,6 +20,7 @@ export default function authLayout({ children }) {
       <div className=" xl:w-10/12 2xl:w-11/12  mx-auto py-10  px-10">
         <div className=" w-full">
         <Image
+        alt='my learning'
           src="/assets/img/others/Logo.png"
           width = {231}
           height = {46}

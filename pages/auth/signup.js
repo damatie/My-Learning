@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import { useState,useEffect  } from "react" 
 import React, { useRef } from "react";
 import AuthLayout from "../../components/layouts/authLayout"
@@ -6,20 +7,19 @@ import Icon from "../../components/shared/icon"
 import Link from 'next/link'
 import {InputText,InputEmail,InputPwd} from "../../components/shared/forms/inputText"
 import { useForm } from "react-hook-form"
-import { createAccount } from "../../services/apiFactory"
+import { createAccount, googleAuth } from "../../services/apiFactory"
 import AlertCard from "../../components/shared/alertCard"
+import { AlertTimeOut } from "../../utils/alertTimeout";
 
 export default function Signup(){
+  const pwdType = 'password'
   const [isPwdVisible, setIsPwdVisible] = useState(true)
   const [isPwdConfirmVisible, setIsPwdConfirmVisible] = useState(true)
-  const [passwordType, setPasswordType] = useState('password')
-  const [confirmPasswordType, setConfirmPasswordType] = useState('password')
-  const [companyName, setCompanyName] = useState()
-  const [companyEmail, setCompanyEmail] = useState()
-  // const [password, setPassword] = useState()
+  const [passwordType, setPasswordType] = useState(pwdType)
+  const [confirmPasswordType, setConfirmPasswordType] = useState(pwdType)
   const [alert, setAlert] = useState()
+  const [isLoading, setIsLoading] = useState(false)
 
-  
   // Onclick show and hide password
   function show(value){
     if(value==='password'){
@@ -29,36 +29,44 @@ export default function Signup(){
       {isPwdConfirmVisible? setConfirmPasswordType('text')|| setIsPwdConfirmVisible(!isPwdConfirmVisible):setConfirmPasswordType('password')||setIsPwdConfirmVisible(!isPwdConfirmVisible)}
     }
   }
-  // Hide alert
-   function alertTimeOut(){
-    const timer = setTimeout(() => {
-      setAlert()
-        }, 10000);
-        return () => clearTimeout(timer);
-   } 
+  //  Google Auth
+  const googleSign = async() =>{
+    const res = googleAuth().then(result => {
+      console.log(result)
+        // setAlert(<AlertCard msg={status}/>)
+        // alertTimeOut()
+    })
+    console.log(res)
+  }
 // Handle create account
-  const createNewAccount = async(data) =>{
+  const handleCreateAccount = async(data) =>{
+    setIsLoading(true)
     let payload  = {
       companyName:data.companyName,
       companyEmail:data.email,
       password: data.password
     }
-    const res = createAccount(payload).then(result => {
-      const msg = result.data.error;
-      const status =  result.data.status
+    createAccount(payload).then(result => {
+      const status =  result.data.message
       console.log(status)
+        setIsLoading(false)
         setAlert(<AlertCard msg={status}/>)
-        alertTimeOut()
-    })
+        AlertTimeOut()
+    }).catch((error) => {
+      console.log(error)
+      setIsLoading(false)
+    });
   }
 
-  useEffect(()  => {
-  },[]);
- 
    // Handle form validation 
    const {register,handleSubmit,formState: { errors } , watch} = useForm();
+   const companyName = watch('companyName','')
+   const email = watch('email','')
+   const password = watch('password','')
+   const confirmPassword = watch('confirmPassword','')
+
    const onSubmit = (data)=> {
-    createNewAccount(data)
+    handleCreateAccount(data)
   };
   return(
     <AuthLayout>
@@ -67,8 +75,8 @@ export default function Signup(){
         <span className="block text-md font-bold"> Create a My learning account</span>
         <span className="block text-sm text-text-low-light font-medium">Start developing your company by taking the first step </span>
         <div className=" block w-full my-6">
-        <Link href="#">
           <span
+            onClick={() => googleSign()}
           className=" text-primary font-medium text-sm border py-3 rounded-md w-full justify-center flex cursor-pointer">
             <Icon
             name = "flat-color-icons_google"
@@ -77,7 +85,6 @@ export default function Signup(){
             />
             <span className=" flex-none px-1 inline-block  text-sm "> Create Account with Google</span>
           </span>
-          </Link>
         </div>
         <div className="w-full flex py-3 ">
           <div className=" w-5/12 flex-none"> <hr /></div>
@@ -99,7 +106,8 @@ export default function Signup(){
                 <InputEmail  name = "email" type = "text"  label="Email  " register={register} required
                  />
                   <span className=" text-error text-xs">
-                   {errors.email?.type === 'required' && "Email is required"}
+                   {errors.email?.type === 'required' && "Email is required" }
+                   {errors.email?.message }
                   </span>
               </span>
               <span>
@@ -117,18 +125,27 @@ export default function Signup(){
                 <InputPwd name = "confirmPassword" label="Confirm Password "
                 type={confirmPasswordType}
                 register={register} 
-                required onClick={(e) => show('confirmPassword')}
+                required 
+                onClick={() => show('confirmPassword')}
                 />
                 <span className=" text-error text-xs">
-                   {errors.confirmPassword?.type === 'required' && "Confirm is required"}
-                   {errors.confirmPassword?.type === 'minLength' && errors.confirmPassword.message}
+                   {errors.confirmPassword?.type === 'required' && ""}
+                   {confirmPassword === password?  "": "Confirm password does not match"}
                 </span>
               </span>
             </div>
             <div className=" block w-full">
               <Button
-              className=" bg-call-to-action text-white text-sm uppercase w-full py-3 rounded font-medium"
-              label="Create an account"
+              disabled ={  
+                companyName === ""? 'disabled':
+                email ===""? 'disabled':  
+                password === ""? 'disabled' : 
+                confirmPassword === ""? 'disabled' : 
+                confirmPassword === password? '' : 'disabled'
+              }
+              isLoading = {isLoading}
+              className=" bg-call-to-action text-white text-sm uppercase w-full py-4 rounded font-medium"
+              label= { !isLoading? "Create an account" :""}
               />
             </div>
             <div className="w-full text-xs font-semibold text-center text-primary">

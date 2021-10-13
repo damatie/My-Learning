@@ -1,20 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
-
 import Icon from "../shared/icon";
+import { userLogOut } from "../../services/auth"
+import { useRouter } from "next/router"
 
 function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
+      // SET ACTIVE LINK
+    const router = useRouter()
+    // LOG OUT FUNCTION
+    function logOut(){
+     userLogOut("token") 
+     router.push("/auth/signin")
+    }
 
     // TOGGLE SIDE NAV
     const sideNavBtn  = (prev) =>{
         setReduceAppSideNav(!prev)
     }
-
-    // SET ACTIVE LINK
-    const router = useRouter()
-
-
 
     return (
         <nav className='w-11/12 mx-auto py-2 h-full flex flex-col justify-between'>
@@ -117,13 +119,13 @@ function DashboardSideNav({reduceAppSideNav,setReduceAppSideNav}) {
                 </ul>
             </div>
             <div className=''>
-                <li className={`${!reduceAppSideNav ? 'mb-2 w-10/12 grid place-items-center mx-auto' : 'mb-2 w-full grid place-items-center mx-auto'}`}>
-                    <Link   href='/'>
-                            <a className={`${ !reduceAppSideNav ? 'inline-flex rounded-md font-semibold p-1 items-center text-center w-1/2 justify-center text-white text-base active:bg-accent text-white hover:text-primary  focus:bg-accent hover:bg-accent active:text-primary' : 'inline-flex px-1 py-1 rounded-md font-semibold items-center text-center w-full justify-center text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary text-white hover:text-primary' }`}>
+                <li 
+                onClick= {() => logOut()}
+                className={`${!reduceAppSideNav ? 'cursor-pointer  mb-2 w-10/12 grid place-items-center mx-auto' : 'cursor-pointer mb-2 w-full grid place-items-center mx-auto'}`}>
+                            <p className={`${ !reduceAppSideNav ? ' inline-flex rounded-md font-semibold p-1 items-center text-center w-1/2 justify-center text-base active:bg-accent text-white hover:text-primary  focus:bg-accent hover:bg-accent active:text-primary' : 'inline-flex px-1 py-1 rounded-md font-semibold items-center text-center w-full justify-center text-base active:bg-accent  focus:bg-accent hover:bg-accent active:text-primary text-white hover:text-primary' }`}>
                             <i className='las la-sign-out-alt text-2xl'></i>                            
                             {reduceAppSideNav && <span className='pl-1'>Logout</span>}
-                        </a>
-                    </Link>
+                        </p>
                 </li>
                 { !reduceAppSideNav ?  (
                         <div className='text-center'>

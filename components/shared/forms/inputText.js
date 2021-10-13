@@ -37,7 +37,7 @@ export  const InputEmail = ({ type,name, label, register, required, }) => (
   </>
 );
 
-export  const InputPwd = ({type, name, label, register, required,onClick, validate }) => {
+export  const InputPwd = ({type, name, label, register, required,onClick }) => {
   return (
     
   <>
